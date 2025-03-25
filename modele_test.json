@@ -13,7 +13,17 @@
                 "title": "physics",
                 "description": "physics blabla",
                 "ects": 6,
-                "quiz_id": 23
+                "quiz": {
+                    "id": 23,
+                    "enonce": "",
+                    "options": [
+                        "option1",
+                        "option2",
+                        "option3",
+                        "option4",
+                        "solution"
+                    ]
+                }
             }
         }
     }

@@ -33,6 +33,7 @@ db.exec(`CREATE TABLE IF NOT EXISTS quiz(
     option2 VArchar2(10) not NULL,
     option3 VArchar2(10) not NULL,
     option4 VArchar2(10) not NULL,
+    solution VArchar2(10) not NULL,
     id_ue INTEGER not NULL,
     FOREIGN KEY (id_ue) REFERENCES ue(id)
 )`);
