@@ -3,16 +3,52 @@ let Sqlite=require("better-sqlite3"); //imporation better-sql
 let db = new Sqlite("db.sqlite");
 let express =require("express");
 let app=express();
-let mustache = require('mustache-express');
-app.engine('html', mustache()); 
+let mustacheExpress = require('mustache-express');
+app.engine('html', mustacheExpress()); 
 app.set('view engine', 'html');
 app.set('views', './views');
 
+
+db.exec(`CREATE TABLE IF NOT EXISTS licences(
+     id INTEGER PRIMARY KEY AUTOINCREMENT,
+     title Varchar2(10) not NULL,
+     description  Varchar2(10) not NULL
+)`);
+
+
+db.exec(`CREATE TABLE IF NOT EXISTS ue(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    title Varchar2(10) not NULL,
+    description  Varchar2(10) not NULL,
+    ects INTEGER not NUL,
+    vol_h INTEGER not NUL,
+    id _licence INTEGER not NULL,
+    FOREIGN KEY (id_licence) REFERENCES licences(id)
+)`);
+
+db.exec(`CREATE TABLE IF NOT EXISTS quiz(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    enonce VArchar2(10) not NULL,
+    option1 VArchar2(10) not NULL,
+    option2 VArchar2(10) not NULL,
+    option3 VArchar2(10) not NULL,
+    option4 VArchar2(10) not NULL,
+    id_ue INTEGER not NULL,
+    FOREIGN KEY (id_ue) REFERENCES ue(id)
+)`);
+
+
+
+
+
+
+
+
 function get_licence(id_licence){
     let a={};
-    let title=db.prepare("Select title from licence where id=?");
+    let title=db.prepare("Select title from licences where id=?");
     a["title"]=title.run(id_licence);
-    let des=db.prepare("Select description from licence where id=?");
+    let des=db.prepare("Select description from licences where id=?");
     a["description"]=des.run(id_licence);
     let u=[];
     let i =db.prepare("Select id from ue where id_licence=?").run(id_licence).all();
