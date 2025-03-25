@@ -47,15 +47,15 @@ db.exec(`CREATE TABLE IF NOT EXISTS quiz(
 function get_licence(id_licence){
     let a={};
     let title=db.prepare("Select title from licences where id=?");
-    a["title"]=title.run(id_licence);
+    a["title"]=title.get(id_licence);
     let des=db.prepare("Select description from licences where id=?");
-    a["description"]=des.run(id_licence);
+    a["description"]=des.get(id_licence);
     let u=[];
-    let i =db.prepare("Select id from ue where id_licence=?").run(id_licence).all();
+    let i =db.prepare("Select id from ue where id_licence=?").all(id_licence);
     for (const x in i) {
         let ue ={};
         ue["id"]=x;
-        ue["title"]=db.prepare("Select title from ue where id=?").run(x);
+        ue["title"]=db.prepare("Select title from ue where id=?").get(x);
         u.push(ue);
     }
     a["ue"]=u;
@@ -69,50 +69,35 @@ function get_all_licences(){
     for (const x in i) {
         let b={};
         b["id"]=x;
-        b["title"]=find_name.run(x);
+        b["title"]=find_name.get(x);
         a.push(b);
     }
     return a;
 }
 
 function get_ue(id_ue){
-    let a={};
-    let title=db.prepare("Select title from ue where id=?");
-    a["title"]=title.run(id_ue);
-    let des=db.prepare("Select description from ue where id=?");
-    a["description"]=des.run(id_ue);
-    let e=db.prepare("Select ects from ue where id=?");
-    a["ects"]=e.run(id_ue);
-    let v=db.prepare("Select vol_h from ue where id=?");
-    a["vol_h"]=v.run(id_ue);
-    let q=db.prepare("Select id from quiz where id_ue=?");
-    a["question_id"]=q.run(id_ue);
-    return a;
+    return {
+        "title": db.prepare("Select title from ue where id=?").get(id_ue),
+        "description": db.prepare("Select description from ue where id=?").get(id_ue),
+        "ects": db.prepare("Select ects from ue where id=?").get(id_ue),
+        "vol_h": db.prepare("Select vol_h from ue where id=?").get(id_ue),
+        "question_id": db.prepare("Select id from quiz where id_ue=?").get(id_ue)
+    };
 }
 
 function get_quiz(id_question){
-    let a={}
-    let e=db.prepare("Select enonce from quiz where id=?");
-    a["enonce"]=e.run(id_question);
-    let o1=db.prepare("Select option1 from quiz where id=?");
-    a["option1"]=o1.run(id_question);
-    let o2=db.prepare("Select option2 from quiz where id=?");
-    a["option2"]=o2.run(id_question);
-    let o3=db.prepare("Select option3 from quiz where id=?");
-    a["option3"]=o3.run(id_question);
-    let o4=db.prepare("Select option4 from quiz where id=?");
-    a["option4"]=o4.run(id_question);
-    return a;
+    return {
+        "enonce": db.prepare("Select enonce from quiz where id=?").get(id_question),
+        "option1": db.prepare("Select option1 from quiz where id=?").get(id_question),
+        "option1": db.prepare("Select option2 from quiz where id=?").get(id_question),
+        "option1": db.prepare("Select option3 from quiz where id=?").get(id_question),
+        "option1": db.prepare("Select option4 from quiz where id=?").get(id_question)
+    };
 }
 
 function check_sol(id_question, sol){
     let rep=db.prepare("Select solution from quiz where id=?");
-    if (sol==rep.run(id_question)) {
-        return true;
-    }
-    else{
-        return false;
-    }
+    return (sol==rep.get(id_question));
 }
 
 app.get("/",(req,res)=>{
@@ -144,11 +129,9 @@ app.post("/quiz/:id",(req,res)=>{
     let q=check_sol(parseInt(req.params.id), req.form.choice);
     if(q){
         res.send("bonne reponse");
-        
     }
     else{
         res.send("faux");
-        res.redirect("/quiz/:id");
     }
     }
 );
