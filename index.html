@@ -4,5 +4,16 @@
 <title>index</title>
 <meta charset="utf-8">
 </head>
+
+<ul>
+    {%for licence in licences%}
+        <li><a href="/licence/{{licence.id}}" >{{licence.title}}</a></li>
+    {%endfor%}
+</ul>
+
+
+
+
+
 </html>
 
