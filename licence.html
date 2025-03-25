@@ -1,7 +1,19 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title>licence</title>
-<meta charset="utf-8">
-</head>
+    <head>
+        <title>Licence {{licence.title}}</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <h1>Licence {{licence.title}}</h1>
+        <h3>Description</h3>
+        <p>{{licence.description}}</p>
+        <h3>Listes des UE</h3>
+        <ul>
+            {{#licence.ue}}
+                <li><a href="/ue/{{id}}">{{title}}</a></li>
+            {{/licence.ue}}
+        </ul>
+        
+    </body>
 </html>

@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title>index</title>
-<meta charset="utf-8">
-</head>
-
-<ul>
-    {%for licence in licences%}
-        <li><a href="/licence/{{licence.id}}" >{{licence.title}}</a></li>
-    {%endfor%}
-</ul>
-
-
+    <head>
+        <title>index</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <ul>
+            {{#licences%}}
+                <li><a href="/licence/{{id}}" >{{title}}</a></li>
+            {{/licences}}
+        </ul>
 
 
 
+
+    </body>
 </html>
 

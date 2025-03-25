@@ -1,0 +1,20 @@
+{
+    "1": {
+        "title": "Info",
+        "description": "info blabla",
+        "ue": {
+            "1": {
+                "title": "maths",
+                "description": "maths blabla",
+                "ects": 6,
+                "quiz_id": 22
+            },
+            "2": {
+                "title": "physics",
+                "description": "physics blabla",
+                "ects": 6,
+                "quiz_id": 23
+            }
+        }
+    }
+}
