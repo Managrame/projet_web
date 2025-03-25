@@ -50,7 +50,7 @@ function get_ue(id_ue){
     let v=db.prepare("Select vol_h from ue where id=?");
     a["vol_h"]=v.run(id_ue);
     let q=db.prepare("Select id from quiz where id_ue=?");
-    a["quiz"]=q.run(id_ue);
+    a["question_id"]=q.run(id_ue);
     return a;
 }
 
