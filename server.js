@@ -52,7 +52,7 @@ function get_licence(id_licence){
     a["description"]=des.get(id_licence);
     let u=[];
     let i =db.prepare("Select id from ue where id_licence=?").all(id_licence);
-    for (const x in i) {
+    for (var x of i) {
         let ue ={};
         ue["id"]=x;
         ue["title"]=db.prepare("Select title from ue where id=?").get(x);
@@ -66,7 +66,7 @@ function get_all_licences(){
     let a=[];
     let i=db.run("Select id from licences").all();
     const find_name=db.prepare("Select title From licences Where id=?");
-    for (const x in i) {
+    for (var x of i) {
         let b={};
         b["id"]=x;
         b["title"]=find_name.get(x);
