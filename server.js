@@ -142,7 +142,7 @@ app.get("/quiz/:id",(req,res)=>{
 
 app.post("/quiz/:id",(req,res)=>{
     let q=check_sol(parseInt(req.params.id), req.form.choice);
-    if(q==true){
+    if(q){
         res.send("bonne reponse");
         
     }
