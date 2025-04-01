@@ -1,110 +1,117 @@
 
-{"1": {
-    "title": "Licence Chimie",
-    "description": "Formation aux concepts fondamentaux de la chimie, incluant la chimie organique, inorganique et physique.",
-    "ue": {
-        "1": {
-            "title": "Chimie Organique",
-            "description": "Étude des composés du carbone et de leurs réactions.",
-            "ects": 6,
-            "quiz": {
-                "id": 101,
-                "enonce": "Quel est le nom du composé de formule C6H12O6 ?",
-                "options": [
-                    "Acide acétique",
-                    "Glucose",
-                    "Méthanol",
-                    "Acide citrique"
-                ],
-                "solution": "Glucose"
+{
+    "1": {
+        "title": "Licence Chimie",
+        "description": "Formation aux concepts fondamentaux de la chimie, incluant la chimie organique, inorganique et physique.",
+        "ue": {
+            "1": {
+                "title": "Chimie Organique",
+                "description": "Étude des composés du carbone et de leurs réactions.",
+                "ects": 6,
+                "vol_h": 45,
+                "quiz": {
+                    "id": 101,
+                    "enonce": "Quel est le nom du composé de formule C6H12O6 ?",
+                    "options": [
+                        "Acide acétique",
+                        "Glucose",
+                        "Méthanol",
+                        "Acide citrique"
+                    ],
+                    "solution": "Glucose"
+                }
+            },
+            "2": {
+                "title": "Chimie Inorganique",
+                "description": "Introduction aux éléments chimiques et à leurs propriétés.",
+                "ects": 6,
+                "vol_h": 45,
+                "quiz": {
+                    "id": 102,
+                    "enonce": "Quel est l'élément chimique représenté par le symbole Na ?",
+                    "options": [
+                        "Sodium",
+                        "Néon",
+                        "Nitrate",
+                        "Natrium"
+                    ],
+                    "solution": "Sodium"
+                }
+            },
+            "3": {
+                "title": "Thermodynamique Chimique",
+                "description": "Principes de la thermodynamique appliqués à la chimie.",
+                "ects": 6,
+                "vol_h": 45,
+                "quiz": {
+                    "id": 103,
+                    "enonce": "Quelle est la première loi de la thermodynamique ?",
+                    "options": [
+                        "Énergie cinétique",
+                        "Énergie potentielle",
+                        "Conservation de l'énergie",
+                        "Équilibre chimique"
+                    ],
+                    "solution": "Conservation de l'énergie"
+                }
             }
-        },
-        "2": {
-            "title": "Chimie Inorganique",
-            "description": "Introduction aux éléments chimiques et à leurs propriétés.",
-            "ects": 6,
-            "quiz": {
-                "id": 102,
-                "enonce": "Quel est l'élément chimique représenté par le symbole Na ?",
-                "options": [
-                    "Sodium",
-                    "Néon",
-                    "Nitrate",
-                    "Natrium"
-                ],
-                "solution": "Sodium"
-            }
-        },
-        "3": {
-            "title": "Thermodynamique Chimique",
-            "description": "Principes de la thermodynamique appliqués à la chimie.",
-            "ects": 6,
-            "quiz": {
-                "id": 103,
-                "enonce": "Quelle est la première loi de la thermodynamique ?",
-                "options": [
-                    "Énergie cinétique",
-                    "Énergie potentielle",
-                    "Conservation de l'énergie",
-                    "Équilibre chimique"
-                ],
-                "solution": "Conservation de l'énergie"
+        }
+    },
+    "2": {
+        "title": "Licence Informatique",
+        "description": "Étude des bases de l'informatique, incluant la programmation, les algorithmes et les systèmes informatiques.",
+        "ue": {
+            "1": {
+                "title": "Programmation et Algorithmique",
+                "description": "Conception et implémentation d'algorithmes en programmation.",
+                "ects": 6,
+                "vol_h": 40,
+                "quiz": {
+                    "id": 201,
+                    "enonce": "Quel est le rôle d'une fonction récursive ?",
+                    "options": [
+                        "Optimiser la mémoire",
+                        "Réduire la complexité",
+                        "Appeler une fonction dans elle-même",
+                        "Faire des calculs parallèles"
+                    ],
+                    "solution": "Appeler une fonction dans elle-même"
+                }
+            },
+            "2": {
+                "title": "Bases de Données",
+                "description": "Conception et manipulation de bases de données relationnelles.",
+                "ects": 6,
+                "vol_h": 40,
+                "quiz": {
+                    "id": 202,
+                    "enonce": "Quel est l'objectif d'une clé primaire dans une base de données ?",
+                    "options": [
+                        "Garantir l'unicité des enregistrements",
+                        "Optimiser les requêtes",
+                        "Assurer la sécurité des données",
+                        "Gérer les autorisations d'accès"
+                    ],
+                    "solution": "Garantir l'unicité des enregistrements"
+                }
+            },
+            "3": {
+                "title": "Systèmes d'Exploitation",
+                "description": "Introduction aux systèmes d'exploitation et gestion des processus.",
+                "ects": 6,
+                "vol_h": 40,
+                "quiz": {
+                    "id": 203,
+                    "enonce": "Quel est le rôle d'un gestionnaire de processus dans un système d'exploitation ?",
+                    "options": [
+                        "Gérer la mémoire",
+                        "Assurer la communication entre les processus",
+                        "Exécuter des programmes",
+                        "Contrôler l'entrée/sortie"
+                    ],
+                    "solution": "Exécuter des programmes"
+                }
             }
         }
     }
-},
-"2": {
-    "title": "Licence Informatique",
-    "description": "Étude des bases de l'informatique, incluant la programmation, les algorithmes et les systèmes informatiques.",
-    "ue": {
-        "1": {
-            "title": "Programmation et Algorithmique",
-            "description": "Conception et implémentation d'algorithmes en programmation.",
-            "ects": 6,
-            "quiz": {
-                "id": 201,
-                "enonce": "Quel est le rôle d'une fonction récursive ?",
-                "options": [
-                    "Optimiser la mémoire",
-                    "Réduire la complexité",
-                    "Appeler une fonction dans elle-même",
-                    "Faire des calculs parallèles"
-                ],
-                "solution": "Appeler une fonction dans elle-même"
-            }
-        },
-        "2": {
-            "title": "Bases de Données",
-            "description": "Conception et manipulation de bases de données relationnelles.",
-            "ects": 6,
-            "quiz": {
-                "id": 202,
-                "enonce": "Quel est l'objectif d'une clé primaire dans une base de données ?",
-                "options": [
-                    "Garantir l'unicité des enregistrements",
-                    "Optimiser les requêtes",
-                    "Assurer la sécurité des données",
-                    "Gérer les autorisations d'accès"
-                ],
-                "solution": "Garantir l'unicité des enregistrements"
-            }
-        },
-        "3": {
-            "title": "Systèmes d'Exploitation",
-            "description": "Introduction aux systèmes d'exploitation et gestion des processus.",
-            "ects": 6,
-            "quiz": {
-                "id": 203,
-                "enonce": "Quel est le rôle d'un gestionnaire de processus dans un système d'exploitation ?",
-                "options": [
-                    "Gérer la mémoire",
-                    "Assurer la communication entre les processus",
-                    "Exécuter des programmes",
-                    "Contrôler l'entrée/sortie"
-                ],
-                "solution": "Exécuter des programmes"
-            }
-        }
-    }
-}
 }
