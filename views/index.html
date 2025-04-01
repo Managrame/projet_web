@@ -6,13 +6,15 @@
     </head>
     <body>
         <ul>
-            {{#licences%}}
+            {{#licences}}
                 <li><a href="/licence/{{id}}" >{{title}}</a></li>
             {{/licences}}
         </ul>
 
 
-
+        {{^licences}}
+        <p>Aucune licence trouvée.</p>
+    {{/licences}}
 
     </body>
 </html>

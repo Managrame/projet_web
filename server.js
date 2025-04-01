@@ -12,29 +12,36 @@ app.set('views', './views');
 
 
 function insert_licence(data) {
-    const r=db.prepare("INSERT INTO licences (title, description) VALUES (@title, @description)").run(data);
-    
-    for (const x of data.ue) {
-       var a= db.prepare("Insert into ue (title,description,ects,vol_h,id_licence) Values(@title,@description,@ects,@vol_h,@id_licence)").run({
-            title:x.title,
-            description:x.description,
-            ects:x.ects,
-            voh_h:x.vol_h,
-            id_licence:r.lastInsertRowid
-        })
-       db.prepare("Insert into quiz (enonce,option1,option2,option3,option4,solution,id_ue) Values(@enonce,@option1,@option2,@option3,@option4,@solution,@id_ue)").run({
-        enonce:x.quiz.enonce,
-        option1:x.quiz.options[0],
-        option2:x.quiz.options[1],
-        option3:x.quiz.options[2],
-        option4:x.quiz.options[3],
-        solution:x.quiz.solution,
-        id_ue:a.lastInsertRowid
-       })
+    const r = db.prepare("INSERT INTO licences (title, description) VALUES (@title, @description)").run({
+        title: data.title,
+        description: data.description
+    });
 
+    for (const key in data.ue) {
+        if (data.ue.hasOwnProperty(key)) {
+            const x = data.ue[key]; // Accès à l'UE
 
+            var a = db.prepare("INSERT INTO ue (title, description, ects, vol_h, id_licence) VALUES (@title, @description, @ects, @vol_h, @id_licence)").run({
+                title: x.title,
+                description: x.description,
+                ects: x.ects,
+                vol_h: x.vol_h,
+                id_licence: r.lastInsertRowid
+            });
+
+            db.prepare("INSERT INTO quiz (enonce, option1, option2, option3, option4, solution, id_ue) VALUES (@enonce, @option1, @option2, @option3, @option4, @solution, @id_ue)").run({
+                enonce: x.quiz.enonce,
+                option1: x.quiz.options[0],
+                option2: x.quiz.options[1],
+                option3: x.quiz.options[2],
+                option4: x.quiz.options[3],
+                solution: x.quiz.solution,
+                id_ue: a.lastInsertRowid
+            });
+        }
     }
 }
+
 
 async function lireJSON(file) {
     try {
@@ -48,70 +55,94 @@ async function lireJSON(file) {
 async function load(file) {
     db.exec(`CREATE TABLE IF NOT EXISTS licences(
         id INTEGER PRIMARY KEY AUTOINCREMENT,
-        title Varchar2(10) not NULL,
-        description  Varchar2(10) not NULL
-   )`);
-   
-   
-   db.exec(`CREATE TABLE IF NOT EXISTS ue(
-       id INTEGER PRIMARY KEY AUTOINCREMENT,
-       title Varchar2(10) not NULL,
-       description  Varchar2(10) not NULL,
-       ects INTEGER not NUL,
-       vol_h INTEGER not NUL,
-       id _licence INTEGER not NULL,
-       FOREIGN KEY (id_licence) REFERENCES licences(id)
-   )`);
-   
-   db.exec(`CREATE TABLE IF NOT EXISTS quiz(
-       id INTEGER PRIMARY KEY AUTOINCREMENT,
-       enonce VArchar2(10) not NULL,
-       option1 VArchar2(10) not NULL,
-       option2 VArchar2(10) not NULL,
-       option3 VArchar2(10) not NULL,
-       option4 VArchar2(10) not NULL,
-       solution VArchar2(10) not NULL,
-       id_ue INTEGER not NULL,
-       FOREIGN KEY (id_ue) REFERENCES ue(id)
-   )`);
-   
-const data= await lireJSON(file);
-for (const licence of data) {
-    insert_licence(licence);
-}
+        title TEXT NOT NULL,
+        description TEXT NOT NULL
+    )`);
+    
+    db.exec(`CREATE TABLE IF NOT EXISTS ue(
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        title TEXT NOT NULL,
+        description TEXT NOT NULL,
+        ects INTEGER NOT NULL,
+        vol_h INTEGER NOT NULL,
+        id_licence INTEGER NOT NULL,
+        FOREIGN KEY (id_licence) REFERENCES licences(id)
+    )`);
 
-}
+    db.exec(`CREATE TABLE IF NOT EXISTS quiz(
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        enonce TEXT NOT NULL,
+        option1 TEXT NOT NULL,
+        option2 TEXT NOT NULL,
+        option3 TEXT NOT NULL,
+        option4 TEXT NOT NULL,
+        solution TEXT NOT NULL,
+        id_ue INTEGER NOT NULL,
+        FOREIGN KEY (id_ue) REFERENCES ue(id)
+    )`);
 
-
-
-function get_licence(id_licence){
-    let a={};
-    let title=db.prepare("Select title from licences where id=?");
-    a["title"]=title.get(id_licence);
-    let des=db.prepare("Select description from licences where id=?");
-    a["description"]=des.get(id_licence);
-    let u=[];
-    let i =db.prepare("Select id from ue where id_licence=?").all(id_licence);
-    for (var x of i) {
-        let ue ={};
-        ue["id"]=x;
-        ue["title"]=db.prepare("Select title from ue where id=?").get(x);
-        u.push(ue);
+    let data = await lireJSON(file);
+    for (const key in data) {
+        insert_licence(data[key]);
     }
-    a["ue"]=u;
-    return a;
 }
 
-function get_all_licences(){
-    let a=[];
-    let i=db.run("Select id from licences").all();
-    const find_name=db.prepare("Select title From licences Where id=?");
-    for (var x of i) {
-        let b={};
-        b["id"]=x;
-        b["title"]=find_name.get(x);
-        a.push(b);
+
+
+
+function get_licence(id_licence) {
+    // Récupération des infos de la licence avec un seul JOIN
+    let licence = db.prepare(`
+        SELECT 
+            l.title AS licence_title, 
+            l.description AS licence_description, 
+            ue.id AS ue_id, 
+            ue.title AS ue_title 
+        FROM licences l
+        LEFT JOIN ue ON ue.id_licence = l.id
+        WHERE l.id = ?
+    `).all(id_licence);
+
+    // Si aucune licence trouvée, retourner null
+    if (licence.length === 0) {
+        return null;
     }
+
+    // Construire l'objet de la licence
+    let result = {
+        title: licence[0].licence_title,
+        description: licence[0].licence_description,
+        ue: []
+    };
+
+    // Ajouter les UEs associées
+    for (let row of licence) {
+        if (row.ue_id) {
+            result.ue.push({
+                id: row.ue_id,
+                title: row.ue_title
+            });
+        }
+    }
+
+    return result;
+}
+
+
+function get_all_licences() {
+    let a = [];
+
+    // Préparer la requête pour récupérer toutes les licences
+    let licences = db.prepare("SELECT id, title FROM licences").all();
+
+    // Construire le tableau de résultats
+    for (let licence of licences) {
+        a.push({
+            id: licence.id,
+            title: licence.title
+        });
+    }
+
     return a;
 }
 
@@ -126,23 +157,18 @@ function get_ue(id_ue){
 }
 
 function get_quiz(id_question){
-    return {
-        "enonce": db.prepare("Select enonce from quiz where id=?").get(id_question),
-        "option1": db.prepare("Select option1 from quiz where id=?").get(id_question),
-        "option1": db.prepare("Select option2 from quiz where id=?").get(id_question),
-        "option1": db.prepare("Select option3 from quiz where id=?").get(id_question),
-        "option1": db.prepare("Select option4 from quiz where id=?").get(id_question)
-    };
+    let quiz = db.prepare("SELECT enonce, option1, option2, option3, option4 FROM quiz WHERE id = ?").get(id_question);
+    return quiz;
 }
 
 function check_sol(id_question, sol){
-    let rep=db.prepare("Select solution from quiz where id=?");
-    return (sol==rep.get(id_question));
+    let rep=db.prepare("Select solution from quiz where id=?").get(id_question);
+    return (sol==rep.solution);
 }
 
 app.get("/",(req,res)=>{
     let al = get_all_licences();
-    res.render("index.html",al);
+    res.render("index.html",{licences:al});
     }
 );
 
@@ -161,7 +187,7 @@ app.get("/ue/:id",(req,res)=>{
 
 app.get("/quiz/:id",(req,res)=>{
     let q=get_quiz(parseInt(req.params.id));
-    res.render("quiz",{quiz,q});
+    res.render("quiz",{quiz:q});
     }
 );
 

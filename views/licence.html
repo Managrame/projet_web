@@ -9,11 +9,12 @@
         <h3>Description</h3>
         <p>{{licence.description}}</p>
         <h3>Listes des UE</h3>
+       {{#licence.ue}}
         <ul>
-            {{#licence.ue}}
+            
                 <li><a href="/ue/{{id}}">{{title}}</a></li>
-            {{/licence.ue}}
-        </ul>
-        
+            </ul>
+         {{/licence.ue}}
+       
     </body>
 </html>
