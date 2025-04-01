@@ -1,9 +1,9 @@
 "user strict";
-let Sqlite=require("better-sqlite3"); //imporation better-sql
+import Sqlite from "better-sqlite3"; //imporation better-sql
 let db = new Sqlite("db.sqlite");
-let express =require("express");
+import express from "express";
 let app=express();
-let mustacheExpress = require('mustache-express');
+import mustacheExpress from 'mustache-express';
 app.engine('html', mustacheExpress()); 
 app.set('view engine', 'html');
 app.set('views', './views');
