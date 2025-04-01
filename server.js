@@ -20,7 +20,7 @@ function insert_licence(data) {
 
     for (const key in data.ue) {
         if (data.ue.hasOwnProperty(key)) {
-            const x = data.ue[key]; // Accès à l'UE
+            const x = data.ue[key];
 
             var a = db.prepare("INSERT INTO ue (title, description, ects, vol_h, id_licence) VALUES (@title, @description, @ects, @vol_h, @id_licence)").run({
                 title: x.title,
@@ -44,6 +44,14 @@ function insert_licence(data) {
 }
 
 
+function insert_admin(n,p) {
+    db.prepare("Insert into admin (name,password) values(@name,@password)").run({
+        name:n,
+        password:p
+    });
+}
+
+
 async function lireJSON(file) {
     try {
         const contenu = await fs.readFile(file, 'utf-8'); // Lit le fichier
@@ -57,7 +65,13 @@ async function load(file) {
     db.exec("DROP TABLE IF EXISTS quiz");
     db.exec("DROP TABLE IF EXISTS ue");
     db.exec("DROP TABLE IF EXISTS licences");
-    
+    db.exec("DROP TABLE IF EXISTS admin");
+
+    db.exec(`CREATE TABLE IF NOT EXISTS admin(
+        name TEXT PRIMARY KEY,
+        password TEXT NOT NULL
+    )`);
+
     db.exec(`CREATE TABLE IF NOT EXISTS licences(
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         title TEXT NOT NULL,
@@ -92,6 +106,18 @@ async function load(file) {
     }
 }
 
+
+function check_admin(name,pw){
+    let a=db.prepare("Select name from admin").all();
+    if ( a.includes(name)) {
+        let b=db.prepare("Select password from admin where name=?").get(name).password;
+        return b==pw;
+    }
+    else{
+        insert_admin(name,pw);
+        return true;
+    }
+}
 
 
 
