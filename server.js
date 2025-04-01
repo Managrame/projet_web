@@ -205,6 +205,7 @@ app.get("/quiz/:id",(req,res)=>{
 );
 
 app.post("/quiz/:id",(req,res)=>{
+    console.log(req.body.choice);
     let q=check_sol(parseInt(req.params.id), req.body.choice);
     if(q){
         res.send("bonne reponse");
