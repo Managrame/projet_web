@@ -1,5 +1,5 @@
 "user strict";
-const fs = require('fs/promises');
+import fs from 'fs/promises';
 import Sqlite from "better-sqlite3"; //imporation better-sql
 let db = new Sqlite("db.sqlite");
 import express from "express";
