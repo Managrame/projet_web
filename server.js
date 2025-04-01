@@ -45,7 +45,7 @@ async function lireJSON(file) {
         console.error("Erreur de lecture :", err);
     }
 }
-function load(file) {
+async function load(file) {
     db.exec(`CREATE TABLE IF NOT EXISTS licences(
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         title Varchar2(10) not NULL,
@@ -75,7 +75,7 @@ function load(file) {
        FOREIGN KEY (id_ue) REFERENCES ue(id)
    )`);
    
-const data= lireJSON(file);
+const data= await lireJSON(file);
 for (const licence of data) {
     insert_licence(licence);
 }
@@ -166,7 +166,7 @@ app.get("/quiz/:id",(req,res)=>{
 );
 
 app.post("/quiz/:id",(req,res)=>{
-    let q=check_sol(parseInt(req.params.id), req.form.choice);
+    let q=check_sol(parseInt(req.params.id), req.body.choice);
     if(q){
         res.send("bonne reponse");
     }
@@ -177,4 +177,8 @@ app.post("/quiz/:id",(req,res)=>{
 );
 
 
-app.listen(load("/proto.json"));
+load("./proto.json").then(() => {
+    app.listen(3000, () => {
+        console.log("Server is running on http://localhost:3000");
+    });
+});
