@@ -1,220 +1,110 @@
-{
-    "licences_sciences_technologies": {
+
+{"1": {
+    "title": "Licence Chimie",
+    "description": "Formation aux concepts fondamentaux de la chimie, incluant la chimie organique, inorganique et physique.",
+    "ue": {
         "1": {
-            "title": "Licence Chimie",
-            "description": "Formation aux concepts fondamentaux de la chimie, incluant la chimie organique, inorganique et physique.",
-            "ue": {
-                "1": {
-                    "title": "Chimie Organique",
-                    "description": "Étude des composés du carbone et de leurs réactions.",
-                    "ects": 6,
-                    "quiz": {
-                        "id": 101,
-                        "enonce": "Quel est le nom du composé de formule C6H12O6 ?",
-                        "options": [
-                            "Acide acétique",
-                            "Glucose",
-                            "Méthanol",
-                            "Acide citrique",
-                            "Solution"
-                        ]
-                    }
-                },
-                "2": {
-                    "title": "Chimie Inorganique",
-                    "description": "Introduction aux éléments chimiques et à leurs propriétés.",
-                    "ects": 6,
-                    "quiz": {
-                        "id": 102,
-                        "enonce": "Quel est l'élément chimique représenté par le symbole Na ?",
-                        "options": [
-                            "Sodium",
-                            "Néon",
-                            "Nitrate",
-                            "Natrium",
-                            "Solution"
-                        ]
-                    }
-                },
-                "3": {
-                    "title": "Thermodynamique Chimique",
-                    "description": "Principes de la thermodynamique appliqués à la chimie.",
-                    "ects": 6,
-                    "quiz": {
-                        "id": 103,
-                        "enonce": "Quelle est la première loi de la thermodynamique ?",
-                        "options": [
-                            "Énergie cinétique",
-                            "Énergie potentielle",
-                            "Conservation de l'énergie",
-                            "Équilibre chimique",
-                            "Solution"
-                        ]
-                    }
-                }
+            "title": "Chimie Organique",
+            "description": "Étude des composés du carbone et de leurs réactions.",
+            "ects": 6,
+            "quiz": {
+                "id": 101,
+                "enonce": "Quel est le nom du composé de formule C6H12O6 ?",
+                "options": [
+                    "Acide acétique",
+                    "Glucose",
+                    "Méthanol",
+                    "Acide citrique"
+                ],
+                "solution": "Glucose"
             }
         },
         "2": {
-            "title": "Licence Informatique",
-            "description": "Étude des bases de l'informatique, incluant la programmation, les algorithmes et les systèmes informatiques.",
-            "ue": {
-                "1": {
-                    "title": "Programmation et Algorithmique",
-                    "description": "Conception et implémentation d'algorithmes en programmation.",
-                    "ects": 6,
-                    "quiz": {
-                        "id": 201,
-                        "enonce": "Quel est le rôle d'une fonction récursive ?",
-                        "options": [
-                            "Optimiser la mémoire",
-                            "Réduire la complexité",
-                            "Appeler une fonction dans elle-même",
-                            "Faire des calculs parallèles",
-                            "Solution"
-                        ]
-                    }
-                },
-                "2": {
-                    "title": "Bases de Données",
-                    "description": "Conception et manipulation de bases de données relationnelles.",
-                    "ects": 6,
-                    "quiz": {
-                        "id": 202,
-                        "enonce": "Quel est l'objectif d'une clé primaire dans une base de données ?",
-                        "options": [
-                            "Garantir l'unicité des enregistrements",
-                            "Optimiser les requêtes",
-                            "Assurer la sécurité des données",
-                            "Gérer les autorisations d'accès",
-                            "Solution"
-                        ]
-                    }
-                },
-                "3": {
-                    "title": "Systèmes d'Exploitation",
-                    "description": "Introduction aux systèmes d'exploitation et gestion des processus.",
-                    "ects": 6,
-                    "quiz": {
-                        "id": 203,
-                        "enonce": "Quel est le rôle d'un gestionnaire de processus dans un système d'exploitation ?",
-                        "options": [
-                            "Gérer la mémoire",
-                            "Assurer la communication entre les processus",
-                            "Exécuter des programmes",
-                            "Contrôler l'entrée/sortie",
-                            "Solution"
-                        ]
-                    }
-                }
+            "title": "Chimie Inorganique",
+            "description": "Introduction aux éléments chimiques et à leurs propriétés.",
+            "ects": 6,
+            "quiz": {
+                "id": 102,
+                "enonce": "Quel est l'élément chimique représenté par le symbole Na ?",
+                "options": [
+                    "Sodium",
+                    "Néon",
+                    "Nitrate",
+                    "Natrium"
+                ],
+                "solution": "Sodium"
             }
         },
         "3": {
-            "title": "Licence Mathématiques",
-            "description": "Approfondissement des théories mathématiques, incluant l'algèbre, l'analyse et la géométrie.",
-            "ue": {
-                "1": {
-                    "title": "Algèbre Linéaire",
-                    "description": "Étude des espaces vectoriels et des matrices.",
-                    "ects": 6,
-                    "quiz": {
-                        "id": 301,
-                        "enonce": "Quelle est la dimension d'un espace vectoriel de R^3 ?",
-                        "options": [
-                            "1",
-                            "2",
-                            "3",
-                            "Infini",
-                            "Solution"
-                        ]
-                    }
-                },
-                "2": {
-                    "title": "Analyse Mathématique",
-                    "description": "Calcul différentiel et intégral avancé.",
-                    "ects": 6,
-                    "quiz": {
-                        "id": 302,
-                        "enonce": "Quel est le résultat de la dérivée de x^2 ?",
-                        "options": [
-                            "x",
-                            "2x",
-                            "x^3",
-                            "2x^2",
-                            "Solution"
-                        ]
-                    }
-                },
-                "3": {
-                    "title": "Probabilités et Statistiques",
-                    "description": "Introduction aux probabilités et statistiques descriptives.",
-                    "ects": 6,
-                    "quiz": {
-                        "id": 303,
-                        "enonce": "Quel est le but de la loi normale en probabilité ?",
-                        "options": [
-                            "Décrire les phénomènes aléatoires",
-                            "Calculer des intervalles de confiance",
-                            "Estimer les variances",
-                            "Mesurer les écarts-types",
-                            "Solution"
-                        ]
-                    }
-                }
-            }
-        },
-        "4": {
-            "title": "Licence Physique",
-            "description": "Étude des lois fondamentales de la physique, incluant la mécanique, l'électromagnétisme et la thermodynamique.",
-            "ue": {
-                "1": {
-                    "title": "Mécanique Classique",
-                    "description": "Étude des lois du mouvement et des forces.",
-                    "ects": 6,
-                    "quiz": {
-                        "id": 401,
-                        "enonce": "Quelle loi de Newton décrit la force agissant sur un objet ?",
-                        "options": [
-                            "Loi de la gravitation",
-                            "Loi de l'inertie",
-                            "Troisième loi de Newton",
-                            "Deuxième loi de Newton",
-                            "Solution"
-                        ]
-                    }
-                },
-                "2": {
-                    "title": "Électromagnétisme",
-                    "description": "Théories de l'électricité et du magnétisme.",
-                    "ects": 6,
-                    "quiz": {
-                        "id": 402,
-                        "enonce": "Quel est l'effet principal du champ magnétique ?",
-                        "options": [
-                            "Créer des champs électriques",
-                            "Dévier les particules chargées",
-                            "Augmenter la température",
-                            "Attirer les objets métalliques",
-                            "Solution"
-                        ]
-                    }
-                },
-                "3": {
-                    "title": "Optique et Ondes",
-                    "description": "Étude des phénomènes optiques et des ondes.",
-                    "ects": 6,
-                    "quiz": {
-                        "id": 403,
-                        "enonce": "Quel phénomène optique explique le passage de la lumière à travers un prisme ?",
-                        "options": [
-                            "Diffraction",
-                            "Réflexion",
-                            "Réfraction",
-                            "Absorption",
-                            "Solution"
-                        ]
-                    }
-                }
+            "title": "Thermodynamique Chimique",
+            "description": "Principes de la thermodynamique appliqués à la chimie.",
+            "ects": 6,
+            "quiz": {
+                "id": 103,
+                "enonce": "Quelle est la première loi de la thermodynamique ?",
+                "options": [
+                    "Énergie cinétique",
+                    "Énergie potentielle",
+                    "Conservation de l'énergie",
+                    "Équilibre chimique"
+                ],
+                "solution": "Conservation de l'énergie"
             }
         }
     }
+},
+"2": {
+    "title": "Licence Informatique",
+    "description": "Étude des bases de l'informatique, incluant la programmation, les algorithmes et les systèmes informatiques.",
+    "ue": {
+        "1": {
+            "title": "Programmation et Algorithmique",
+            "description": "Conception et implémentation d'algorithmes en programmation.",
+            "ects": 6,
+            "quiz": {
+                "id": 201,
+                "enonce": "Quel est le rôle d'une fonction récursive ?",
+                "options": [
+                    "Optimiser la mémoire",
+                    "Réduire la complexité",
+                    "Appeler une fonction dans elle-même",
+                    "Faire des calculs parallèles"
+                ],
+                "solution": "Appeler une fonction dans elle-même"
+            }
+        },
+        "2": {
+            "title": "Bases de Données",
+            "description": "Conception et manipulation de bases de données relationnelles.",
+            "ects": 6,
+            "quiz": {
+                "id": 202,
+                "enonce": "Quel est l'objectif d'une clé primaire dans une base de données ?",
+                "options": [
+                    "Garantir l'unicité des enregistrements",
+                    "Optimiser les requêtes",
+                    "Assurer la sécurité des données",
+                    "Gérer les autorisations d'accès"
+                ],
+                "solution": "Garantir l'unicité des enregistrements"
+            }
+        },
+        "3": {
+            "title": "Systèmes d'Exploitation",
+            "description": "Introduction aux systèmes d'exploitation et gestion des processus.",
+            "ects": 6,
+            "quiz": {
+                "id": 203,
+                "enonce": "Quel est le rôle d'un gestionnaire de processus dans un système d'exploitation ?",
+                "options": [
+                    "Gérer la mémoire",
+                    "Assurer la communication entre les processus",
+                    "Exécuter des programmes",
+                    "Contrôler l'entrée/sortie"
+                ],
+                "solution": "Exécuter des programmes"
+            }
+        }
+    }
+}
 }
