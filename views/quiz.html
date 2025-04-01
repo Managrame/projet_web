@@ -9,10 +9,10 @@
         <h3>{{quiz.enonce}}</h3>
         <form action="/quiz/{{quiz.id}}" method="post">
             <h4>Ecrivez la bonne réponse</h4>
-            <P>Option 1:{{quiz.choix1}}</P>
-            <P>Option 2:{{quiz.choix2}}</P>
-            <P>Option 3:{{quiz.choix3}}</P>
-            <P>Option 4:{{quiz.choix4}}</P>
+            <P>Option 1:{{quiz.option1}}</P>
+            <P>Option 2:{{quiz.option2}}</P>
+            <P>Option 3:{{quiz.option3}}</P>
+            <P>Option 4:{{quiz.option4}}</P>
             <input type="text" name="choice" >
             <input type="submit" value="Valider">
         </form>

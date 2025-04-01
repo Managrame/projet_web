@@ -4,6 +4,7 @@ import Sqlite from "better-sqlite3"; //imporation better-sql
 let db = new Sqlite("db.sqlite");
 import express from "express";
 let app=express();
+app.use(express.urlencoded({ extended: true }));
 import mustacheExpress from 'mustache-express';
 app.engine('html', mustacheExpress()); 
 app.set('view engine', 'html');
@@ -53,6 +54,10 @@ async function lireJSON(file) {
     }
 }
 async function load(file) {
+    db.exec("DROP TABLE IF EXISTS quiz");
+    db.exec("DROP TABLE IF EXISTS ue");
+    db.exec("DROP TABLE IF EXISTS licences");
+    
     db.exec(`CREATE TABLE IF NOT EXISTS licences(
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         title TEXT NOT NULL,
@@ -148,17 +153,25 @@ function get_all_licences() {
 
 function get_ue(id_ue){
     return {
-        "title": db.prepare("Select title from ue where id=?").get(id_ue),
-        "description": db.prepare("Select description from ue where id=?").get(id_ue),
-        "ects": db.prepare("Select ects from ue where id=?").get(id_ue),
-        "vol_h": db.prepare("Select vol_h from ue where id=?").get(id_ue),
-        "question_id": db.prepare("Select id from quiz where id_ue=?").get(id_ue)
+        "title": db.prepare("Select title from ue where id=?").get(id_ue).title,
+        "description": db.prepare("Select description from ue where id=?").get(id_ue).description,
+        "ects": db.prepare("Select ects from ue where id=?").get(id_ue).ects,
+        "vol_h": db.prepare("Select vol_h from ue where id=?").get(id_ue).vol_h,
+        "question_id": db.prepare("Select id from quiz where id_ue=?").get(id_ue).id
     };
 }
 
 function get_quiz(id_question){
-    let quiz = db.prepare("SELECT enonce, option1, option2, option3, option4 FROM quiz WHERE id = ?").get(id_question);
-    return quiz;
+    return {
+        "id":id_question,
+        "enonce": db.prepare("Select enonce from quiz where id=?").get(id_question).enonce,
+        "option1": db.prepare("Select option1 from quiz where id=?").get(id_question).option1,
+        "option2": db.prepare("Select option2 from quiz where id=?").get(id_question).option2,
+        "option3": db.prepare("Select option3 from quiz where id=?").get(id_question).option3,
+        "option4": db.prepare("Select option4 from quiz where id=?").get(id_question).option4,
+        "solution": db.prepare("Select solution from quiz where id=?").get(id_question).solution
+
+    };
 }
 
 function check_sol(id_question, sol){
@@ -174,7 +187,7 @@ app.get("/",(req,res)=>{
 
 app.get("/licence/:id",(req,res)=>{
     let l=get_licence(parseInt(req.params.id));
-    res.render("licence.",{ licence: l });
+    res.render("licence.html",{ licence: l });
     }
 );
 
