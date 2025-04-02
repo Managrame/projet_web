@@ -10,7 +10,7 @@ app.engine('html', mustacheExpress());
 app.set('view engine', 'html');
 app.set('views', './views');
 
-
+let session=false;
 
 function insert_licence(data) {
     const r = db.prepare("INSERT INTO licences (title, description) VALUES (@title, @description)").run({
@@ -207,7 +207,7 @@ function check_sol(id_question, sol){
 
 app.get("/",(req,res)=>{
     let al = get_all_licences();
-    res.render("index.html",{licences:al});
+    res.render("index.html",{licences:al,session:session});
     }
 );
 
@@ -229,6 +229,31 @@ app.get("/quiz/:id",(req,res)=>{
     res.render("quiz",{quiz:q});
     }
 );
+
+
+app.get("/connection",(req,res)=>{
+    res.render("connection.html");
+})
+
+app.get("/logout",(req,res)=>{
+    res.render("logout.html");
+})
+
+app.post("/connection",(req,res)=>{
+    let a=check_admin(req.body.name,req.body.password);
+    if (a) {
+       session=true;
+        res.redirect("/")
+    }
+    else{
+        redirect("/connection")
+    }
+})
+
+app.post("/logout",(req,res)=>{
+    session=false;
+    res.redirect("/");
+})
 
 app.post("/quiz/:id",(req,res)=>{
     console.log(req.body.choice);

@@ -11,10 +11,13 @@
             {{/licences}}
         </ul>
 
+            {{#session}}
+                <a href="/logout">Déconnexion</a>
+            {{/session}}
 
-        {{^licences}}
-        <p>Aucune licence trouvée.</p>
-    {{/licences}}
+        {{^session}}
+        <a href="/connection">login</a>
+         {{/session}}
 
     </body>
 </html>
