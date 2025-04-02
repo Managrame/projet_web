@@ -11,13 +11,13 @@
             {{/licences}}
         </ul>
 
-            {{#session}}
+            {{#session.authenticated}}
                 <a href="/logout">Déconnexion</a>
-            {{/session}}
+            {{/session.authenticated}}
 
-        {{^session}}
+        {{^session.authenticated}}
         <a href="/connection">login</a>
-         {{/session}}
+         {{/session.authenticated}}
 
     </body>
 </html>

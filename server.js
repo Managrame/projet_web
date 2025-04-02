@@ -9,8 +9,17 @@ import mustacheExpress from 'mustache-express';
 app.engine('html', mustacheExpress()); 
 app.set('view engine', 'html');
 app.set('views', './views');
+import session from 'express-session';
 
-let session=false;
+// Configuration des sessions
+app.use(session({
+  secret: '314159', // À changer et garder secret
+  resave: false,
+  saveUninitialized: false,
+  cookie: { 
+   
+  }
+}));
 
 function insert_licence(data) {
     const r = db.prepare("INSERT INTO licences (title, description) VALUES (@title, @description)").run({
@@ -43,6 +52,15 @@ function insert_licence(data) {
     }
 }
 
+function update_ue(id_ue,title,desc,ects,vol_h) {
+    db.prepare("Update ue Set title=@title,description=@description,ects=@ects,vol_h=@vol_h where id= @id").run({
+        id:id_ue,
+        title:title,
+        description:desc,
+        ects:ects,
+        vol_h:vol_h
+    })
+}
 
 function insert_admin(n,p) {
     db.prepare("Insert into admin (name,password) values(@name,@password)").run({
@@ -179,6 +197,7 @@ function get_all_licences() {
 
 function get_ue(id_ue){
     return {
+        "id":id_ue,
         "title": db.prepare("Select title from ue where id=?").get(id_ue).title,
         "description": db.prepare("Select description from ue where id=?").get(id_ue).description,
         "ects": db.prepare("Select ects from ue where id=?").get(id_ue).ects,
@@ -207,7 +226,7 @@ function check_sol(id_question, sol){
 
 app.get("/",(req,res)=>{
     let al = get_all_licences();
-    res.render("index.html",{licences:al,session:session});
+    res.render("index.html",{licences:al,session:req.session});
     }
 );
 
@@ -220,7 +239,7 @@ app.get("/licence/:id",(req,res)=>{
 
 app.get("/ue/:id",(req,res)=>{
     let u=get_ue(parseInt(req.params.id));
-    res.render("ue",{ ue: u });
+    res.render("ue",{ ue:u,session:req.session });
     }
 );
 
@@ -239,10 +258,21 @@ app.get("/logout",(req,res)=>{
     res.render("logout.html");
 })
 
+
+app.get("/update_ue/:id",(req,res)=>{
+    let u=get_ue(parseInt(req.params.id));
+    res.render("update_ue",{ue:u,session:req.session});
+})
+
+app.post("/update_ue/:id",(req,res)=>{
+    update_ue(parseInt(req.params.id),req.body.title,req.body.description,parseInt(req.body.ects),parseInt(req.body.vol_h));
+    res.redirect("/");
+})
+
 app.post("/connection",(req,res)=>{
     let a=check_admin(req.body.name,req.body.password);
     if (a) {
-       session=true;
+       req.session.authenticated =true;
         res.redirect("/")
     }
     else{
@@ -251,8 +281,12 @@ app.post("/connection",(req,res)=>{
 })
 
 app.post("/logout",(req,res)=>{
-    session=false;
-    res.redirect("/");
+    req.session.destroy(err => {
+        if (err) {
+            console.error("Erreur de déconnexion:", err);
+        }
+        res.redirect("/");
+    });
 })
 
 app.post("/quiz/:id",(req,res)=>{
