@@ -63,7 +63,7 @@ function update_ue(id_ue,title,desc,ects,vol_h) {
 }
 
 function insert_admin(n,p) {
-    db.prepare("Insert into admin (name,password) values(@name,@password)").run({
+    db.prepare("INSERT INTO admin (name,password) VALUES (@name,@password)").run({
         name:n,
         password:p
     });
@@ -127,14 +127,17 @@ async function load(file) {
 
 function check_admin(name,pw){
     let a=db.prepare("Select name from admin").all();
-    if ( a.includes(name)) {
+    for (const id of a) {
+         if ( id.name==name) {
         let b=db.prepare("Select password from admin where name=?").get(name).password;
         return b==pw;
     }
-    else{
+    }
+   
+    
         insert_admin(name,pw);
         return true;
-    }
+    
 }
 
 
@@ -261,7 +264,7 @@ app.get("/logout",(req,res)=>{
 
 app.get("/update_ue/:id",(req,res)=>{
     let u=get_ue(parseInt(req.params.id));
-    res.render("update_ue",{ue:u,session:req.session});
+    res.render("update_ue",{ue:u});
 })
 
 app.post("/update_ue/:id",(req,res)=>{
@@ -270,13 +273,13 @@ app.post("/update_ue/:id",(req,res)=>{
 })
 
 app.post("/connection",(req,res)=>{
-    let a=check_admin(req.body.name,req.body.password);
+    let a=check_admin(req.body.username,req.body.password);
     if (a) {
        req.session.authenticated =true;
-        res.redirect("/")
+        res.redirect("/");
     }
     else{
-        redirect("/connection")
+        res.redirect("/connection");
     }
 })
 
