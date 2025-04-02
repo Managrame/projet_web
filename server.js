@@ -10,7 +10,7 @@ app.engine('html', mustacheExpress());
 app.set('view engine', 'html');
 app.set('views', './views');
 import session from 'express-session';
-
+app.use(express.static('public'));
 // Configuration des sessions
 app.use(session({
   secret: '314159', // À changer et garder secret
