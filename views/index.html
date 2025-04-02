@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>index</title>
+        <title>Accueil</title>
         <meta charset="utf-8">
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <ul>
-            {{#licences}}
-                <li><a href="/licence/{{id}}" >{{title}}</a></li>
-            {{/licences}}
-        </ul>
-
-            {{#session.authenticated}}
-                <a href="/logout">Déconnexion</a>
-            {{/session.authenticated}}
-
+        {{#session.authenticated}}
+            <a href="/logout">Déconnexion</a>
+        {{/session.authenticated}}
+        
         {{^session.authenticated}}
-        <a href="/connection">login</a>
-         {{/session.authenticated}}
-
+            <a href="/connection">login</a>
+        {{/session.authenticated}}
+        <div class="container">
+            <ul>
+                {{#licences}}
+                    <li><a href="/licence/{{id}}">{{title}}</a></li>
+                {{/licences}}
+            </ul>
+        </div>
     </body>
 </html>
-

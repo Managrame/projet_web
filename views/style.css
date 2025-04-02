@@ -1,0 +1,79 @@
+body {
+	background-color: #202026;
+	color: white;
+	font-family: Arial;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin-top: 0;
+	margin-bottom: 20px;
+}
+
+.subcontainer h1, .subcontainer h2, .subcontainer h3, .subcontainer h4, .subcontainer h5, .subcontainer h6 {
+	margin: 10px;
+}
+
+a {
+	text-decoration: none;
+	/*color: rgb(30,70,150); light mode*/
+	color: rgb(225, 185, 105); /*dark mode*/
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+.container {
+	/*
+	margin: auto;
+	max-width: fit-content;
+	*/
+	position: absolute;
+	top: 50%; left: 50%;
+	transform: translate(-50%, -50%);
+	
+	border-radius: 10px;
+	/*border: 1px solid #242424; light mode*/
+	/*border: 1px solid #dbdbdb; dark mode*/
+	padding: 50px;
+	max-width: fit-content;
+	text-align: center;
+	background-color: #303030;
+}
+
+.container ul {
+	list-style-type: none;
+	padding: 0;
+}
+
+/*
+.subcontainer {
+	text-align: left;
+}
+*/
+.subcontainer {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+input {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	border: none;
+	padding: 6px 10px;
+	border-radius: 5px;
+	background-color: #1e1e1e;
+	color: white;
+}
+input:focus {background-color: #262626;}
+
+button {
+	margin: 0.5px;
+	border: none;
+	padding: 6px 10px;
+	border-radius: 5px;
+	background-color: #1e1e1e;
+	color: white;
+}
+button:hover {background-color: #262626;}
+button:active {background-color: #161616;}
