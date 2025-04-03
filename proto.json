@@ -1,4 +1,3 @@
-
 {
     "1": {
         "title": "Licence Chimie",
@@ -10,15 +9,26 @@
                 "ects": 6,
                 "vol_h": 45,
                 "quiz": {
-                    "id": 101,
-                    "enonce": "Quel est le nom du composé de formule C6H12O6 ?",
-                    "options": [
-                        "Acide acétique",
-                        "Glucose",
-                        "Méthanol",
-                        "Acide citrique"
-                    ],
-                    "solution": "Glucose"
+                    "101": {
+                        "enonce": "Quel est le nom du composé de formule C6H12O6 ?",
+                        "options": [
+                            "Acide acétique",
+                            "Glucose",
+                            "Méthanol",
+                            "Acide citrique"
+                        ],
+                        "solution": "Glucose"
+                    },
+                    "102": {
+                        "enonce": "Quel est le produit de la réaction entre un acide et une base ?",
+                        "options": [
+                            "Un sel et de l'eau",
+                            "Un ester",
+                            "Un alcool",
+                            "Un hydrocarbure"
+                        ],
+                        "solution": "Un sel et de l'eau"
+                    }
                 }
             },
             "2": {
@@ -27,15 +37,26 @@
                 "ects": 6,
                 "vol_h": 45,
                 "quiz": {
-                    "id": 102,
-                    "enonce": "Quel est l'élément chimique représenté par le symbole Na ?",
-                    "options": [
-                        "Sodium",
-                        "Néon",
-                        "Nitrate",
-                        "Natrium"
-                    ],
-                    "solution": "Sodium"
+                    "103": {
+                        "enonce": "Quel est l'élément chimique représenté par le symbole Na ?",
+                        "options": [
+                            "Sodium",
+                            "Néon",
+                            "Nitrate",
+                            "Natrium"
+                        ],
+                        "solution": "Sodium"
+                    },
+                    "104": {
+                        "enonce": "Quel gaz est le plus abondant dans l'atmosphère terrestre ?",
+                        "options": [
+                            "Oxygène",
+                            "Hydrogène",
+                            "Azote",
+                            "Dioxyde de carbone"
+                        ],
+                        "solution": "Azote"
+                    }
                 }
             },
             "3": {
@@ -44,15 +65,26 @@
                 "ects": 6,
                 "vol_h": 45,
                 "quiz": {
-                    "id": 103,
-                    "enonce": "Quelle est la première loi de la thermodynamique ?",
-                    "options": [
-                        "Énergie cinétique",
-                        "Énergie potentielle",
-                        "Conservation de l'énergie",
-                        "Équilibre chimique"
-                    ],
-                    "solution": "Conservation de l'énergie"
+                    "105": {
+                        "enonce": "Quelle est la première loi de la thermodynamique ?",
+                        "options": [
+                            "Énergie cinétique",
+                            "Énergie potentielle",
+                            "Conservation de l'énergie",
+                            "Équilibre chimique"
+                        ],
+                        "solution": "Conservation de l'énergie"
+                    },
+                    "106": {
+                        "enonce": "Comment appelle-t-on un système fermé où aucun échange de chaleur n'est possible ?",
+                        "options": [
+                            "Isotherme",
+                            "Adiabatique",
+                            "Isobare",
+                            "Isotrope"
+                        ],
+                        "solution": "Adiabatique"
+                    }
                 }
             }
         }
@@ -67,15 +99,26 @@
                 "ects": 6,
                 "vol_h": 40,
                 "quiz": {
-                    "id": 201,
-                    "enonce": "Quel est le rôle d'une fonction récursive ?",
-                    "options": [
-                        "Optimiser la mémoire",
-                        "Réduire la complexité",
-                        "Appeler une fonction dans elle-même",
-                        "Faire des calculs parallèles"
-                    ],
-                    "solution": "Appeler une fonction dans elle-même"
+                    "201": {
+                        "enonce": "Quel est le rôle d'une fonction récursive ?",
+                        "options": [
+                            "Optimiser la mémoire",
+                            "Réduire la complexité",
+                            "Appeler une fonction dans elle-même",
+                            "Faire des calculs parallèles"
+                        ],
+                        "solution": "Appeler une fonction dans elle-même"
+                    },
+                    "202": {
+                        "enonce": "Qu'est-ce qu'un algorithme de tri efficace ?",
+                        "options": [
+                            "Un algorithme rapide",
+                            "Un algorithme stable",
+                            "Un algorithme qui utilise moins de mémoire",
+                            "Un algorithme qui trie toujours par ordre décroissant"
+                        ],
+                        "solution": "Un algorithme rapide"
+                    }
                 }
             },
             "2": {
@@ -84,15 +127,26 @@
                 "ects": 6,
                 "vol_h": 40,
                 "quiz": {
-                    "id": 202,
-                    "enonce": "Quel est l'objectif d'une clé primaire dans une base de données ?",
-                    "options": [
-                        "Garantir l'unicité des enregistrements",
-                        "Optimiser les requêtes",
-                        "Assurer la sécurité des données",
-                        "Gérer les autorisations d'accès"
-                    ],
-                    "solution": "Garantir l'unicité des enregistrements"
+                    "203": {
+                        "enonce": "Quel est l'objectif d'une clé primaire dans une base de données ?",
+                        "options": [
+                            "Garantir l'unicité des enregistrements",
+                            "Optimiser les requêtes",
+                            "Assurer la sécurité des données",
+                            "Gérer les autorisations d'accès"
+                        ],
+                        "solution": "Garantir l'unicité des enregistrements"
+                    },
+                    "204": {
+                        "enonce": "Quel type de jointure retourne tous les enregistrements lorsqu'il n'y a pas de correspondance dans les deux tables ?",
+                        "options": [
+                            "INNER JOIN",
+                            "LEFT JOIN",
+                            "RIGHT JOIN",
+                            "FULL OUTER JOIN"
+                        ],
+                        "solution": "FULL OUTER JOIN"
+                    }
                 }
             },
             "3": {
@@ -101,15 +155,26 @@
                 "ects": 6,
                 "vol_h": 40,
                 "quiz": {
-                    "id": 203,
-                    "enonce": "Quel est le rôle d'un gestionnaire de processus dans un système d'exploitation ?",
-                    "options": [
-                        "Gérer la mémoire",
-                        "Assurer la communication entre les processus",
-                        "Exécuter des programmes",
-                        "Contrôler l'entrée/sortie"
-                    ],
-                    "solution": "Exécuter des programmes"
+                    "205": {
+                        "enonce": "Quel est le rôle d'un gestionnaire de processus dans un système d'exploitation ?",
+                        "options": [
+                            "Gérer la mémoire",
+                            "Assurer la communication entre les processus",
+                            "Exécuter des programmes",
+                            "Contrôler l'entrée/sortie"
+                        ],
+                        "solution": "Exécuter des programmes"
+                    },
+                    "206": {
+                        "enonce": "Quel est l'objectif d'une interruption matérielle ?",
+                        "options": [
+                            "Arrêter le système",
+                            "Économiser de l'énergie",
+                            "Signaler un événement matériel",
+                            "Optimiser le réseau"
+                        ],
+                        "solution": "Signaler un événement matériel"
+                    }
                 }
             }
         }

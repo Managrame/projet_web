@@ -18,7 +18,12 @@
                 <a href="/update_ue/{{ue.id}}">Modifier</a>
             {{/session.authenticated}}
             
-            <a href="/quiz/{{ue.question_id}}">Quiz</a>
+            <ul>
+                {{#ue.quiz}}
+                    <li><a href="/quiz/{{id}}">{{enonce}}</a></li>
+                {{/ue.quiz}}
+            </ul>
+            
         </div>
     </body>
 </html>

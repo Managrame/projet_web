@@ -39,16 +39,25 @@ function insert_licence(data) {
                 id_licence: r.lastInsertRowid
             });
 
+            for (const cle in x.quiz) {
+               if (x.quiz.hasOwnProperty(cle)) {
+                
+               
+                const y=x.quiz[cle]
+            
+
             db.prepare("INSERT INTO quiz (enonce, option1, option2, option3, option4, solution, id_ue) VALUES (@enonce, @option1, @option2, @option3, @option4, @solution, @id_ue)").run({
-                enonce: x.quiz.enonce,
-                option1: x.quiz.options[0],
-                option2: x.quiz.options[1],
-                option3: x.quiz.options[2],
-                option4: x.quiz.options[3],
-                solution: x.quiz.solution,
+                enonce: y.enonce,
+                option1: y.options[0],
+                option2: y.options[1],
+                option3: y.options[2],
+                option4: y.options[3],
+                solution: y.solution,
                 id_ue: a.lastInsertRowid
             });
         }
+        }
+    }
     }
 }
 
@@ -199,13 +208,21 @@ function get_all_licences() {
 }
 
 function get_ue(id_ue){
+    let a=[];
+    let q= db.prepare("Select id,enonce from quiz where id_ue=?").all(id_ue);
+    for (let x of q) {
+        a.push({
+            id: x.id,
+            enonce: x.enonce
+        });
+    }
     return {
         "id":id_ue,
         "title": db.prepare("Select title from ue where id=?").get(id_ue).title,
         "description": db.prepare("Select description from ue where id=?").get(id_ue).description,
         "ects": db.prepare("Select ects from ue where id=?").get(id_ue).ects,
         "vol_h": db.prepare("Select vol_h from ue where id=?").get(id_ue).vol_h,
-        "question_id": db.prepare("Select id from quiz where id_ue=?").get(id_ue).id
+        "quiz":a
     };
 }
 
