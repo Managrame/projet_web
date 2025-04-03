@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Resultat</title>
+        <title>Résultat</title>
         <meta charset="utf-8">
         <link rel="stylesheet" href="/style.css">
     </head>
     <body>
-        <div class="container">
+        <div class="subbody">
+            <div class="container">
                 {{#solution}}
-                <p>Victoire!</p>
-                <a href="/" >retour index</a>
+                <p style="color: green">Victoire !</p>
+                <a href="/">Accueil</a>
                 {{/solution}}
 
                 {{^solution}}
-                <p>Faux!</p>
-                <a href="/quiz/{{id}}" >retour quiz</a>
+                <p style="color: red">Faux !</p>
+                <a href="/quiz/{{id}}">Réessayer</a>
                 {{/solution}}
-
-
+            </div>
         </div>
     </body>
 </html>

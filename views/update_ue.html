@@ -6,25 +6,27 @@
         <link rel="stylesheet" href="/style.css">
     </head>
     <body>
-        <div class="container">
-            <h2>Modifier</h2>
-            <form method="POST" action="/update_ue/{{ue.id}}">
-                <div class="subcontainer">
-                    <h3>Titre</h3>
-                    <input type="text" name="title" value="{{ue.title}}" required><br>
-                    
-                    <h3>Description</h3>
-                    <textarea rows="5" cols="30" name="description" placeholder="Description" required>{{ue.description}}</textarea><br>
-                    
-                    <h3>ECTS</h3>
-                    <input type="text" name="ects" value="{{ue.ects}}" required><br>
-                    
-                    <h3>Nombre d'heures</h3>
-                    <input type="text" name="vol_h" value="{{ue.vol_h}}" required><br>
-                </div>
+        <div class="subbody">
+            <div class="container">
+                <h1>Modifier</h1>
+                <form method="POST" action="/update_ue/{{ue.id}}">
+                    <div class="subcontainer">
+                        <h3>Titre</h3>
+                        <input type="text" name="title" value="{{ue.title}}" placeholder="Titre" required><br>
+                        
+                        <h3>Description</h3>
+                        <textarea rows="5" cols="30" name="description" placeholder="Description" required>{{ue.description}}</textarea><br>
+                        
+                        <h3>ECTS</h3>
+                        <input type="text" name="ects" value="{{ue.ects}}" placeholder="ECTS" required><br>
+                        
+                        <h3>Nombre d'heures</h3>
+                        <input type="text" name="vol_h" value="{{ue.vol_h}}" placeholder="Nombre d'heures" required><br>
+                    </div>
 
-                <button type="submit">Valider</button>
-            </form>
+                    <button type="submit">Enregistrer</button>
+                </form>
+            </div>
         </div>
     </body>
 </html>

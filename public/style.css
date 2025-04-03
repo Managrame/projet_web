@@ -2,10 +2,17 @@ body {
 	background-color: #20202a;
 	color: white;
 	font-family: Arial;
+	min-height: 100vh;
+	margin: 0;
+}
+
+.subbody {
 	display: grid;
 	place-items: center;
 	min-height: 100vh;
-	margin: 0;
+	height: 97vh;
+	width: 97vw;
+	margin: auto;
 }
 
 h1, h2, h3, h4, h5, h6 {

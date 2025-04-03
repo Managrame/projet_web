@@ -30,39 +30,40 @@
         <link rel="stylesheet" href="/style.css">
     </head>
     <body>
-        <div class="container">
-            <h3>{{quiz.enonce}}</h3>
-            <form action="/quiz/{{quiz.id}}" method="post">
-                <h4>Sélectionnez la bonne réponse :</h4>
-                
-                <!-- Chaque value contient le texte exact de l'option -->
-                <div>
-                    <input type="radio" id="option1" name="choice" value="{{quiz.option1}}" required>
-                    <label for="option1">{{quiz.option1}}</label>
-                </div>
-                
-                <div>
-                    <input type="radio" id="option2" name="choice" value="{{quiz.option2}}">
-                    <label for="option2">{{quiz.option2}}</label>
-                </div>
-                
-                <div>
-                    <input type="radio" id="option3" name="choice" value="{{quiz.option3}}">
-                    <label for="option3">{{quiz.option3}}</label>
-                </div>
-                
-                <div>
-                    <input type="radio" id="option4" name="choice" value="{{quiz.option4}}">
-                    <label for="option4">{{quiz.option4}}</label>
-                </div>
-                
-                <br>
-                <input type="submit" value="Valider">
-            </form>
-            {{#session.authenticated}}
-            <a href="/update_quiz/{{quiz.id}}">Modifier</a>
-            {{/session.authenticated}}
-        
+        <div class="subbody">
+            <div class="container">
+                <h3>{{quiz.enonce}}</h3>
+                <form action="/quiz/{{quiz.id}}" method="post">
+                    <h4>Sélectionnez la bonne réponse :</h4>
+                    
+                    <!-- Chaque value contient le texte exact de l'option -->
+                    <div>
+                        <input type="radio" id="option1" name="choice" value="{{quiz.option1}}" required>
+                        <label for="option1">{{quiz.option1}}</label>
+                    </div>
+                    
+                    <div>
+                        <input type="radio" id="option2" name="choice" value="{{quiz.option2}}">
+                        <label for="option2">{{quiz.option2}}</label>
+                    </div>
+                    
+                    <div>
+                        <input type="radio" id="option3" name="choice" value="{{quiz.option3}}">
+                        <label for="option3">{{quiz.option3}}</label>
+                    </div>
+                    
+                    <div>
+                        <input type="radio" id="option4" name="choice" value="{{quiz.option4}}">
+                        <label for="option4">{{quiz.option4}}</label>
+                    </div>
+                    
+                    <br>
+                    <input type="submit" value="Vérifier">
+                </form>
+                {{#session.authenticated}}
+                <a href="/update_quiz/{{quiz.id}}">Modifier</a>
+                {{/session.authenticated}}
+            </div>
         </div>
     </body>
 </html>

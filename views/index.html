@@ -11,15 +11,17 @@
         {{/session.authenticated}}
         
         {{^session.authenticated}}
-            <a href="/connection">login</a>
+            <a href="/connection">Connexion</a>
         {{/session.authenticated}}
-        <div class="container">
-            <h1>Ax-Marseille Université</h1>
-            <ul>
-                {{#licences}}
-                    <li><a href="/licence/{{id}}">{{title}}</a></li>
-                {{/licences}}
-            </ul>
+        <div class="subbody">
+            <div class="container">
+                <h1>Ax-Marseille Université</h1>
+                <ul>
+                    {{#licences}}
+                        <li><a href="/licence/{{id}}">{{title}}</a></li>
+                    {{/licences}}
+                </ul>
+            </div>
         </div>
     </body>
 </html>

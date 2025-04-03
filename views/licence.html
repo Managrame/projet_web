@@ -6,16 +6,18 @@
         <link rel="stylesheet" href="/style.css">
     </head>
     <body>
-        <div class="container">
-            <h1>{{licence.title}}</h1>
-            <h3>Description</h3>
-            <p>{{licence.description}}</p>
-            <h3>Listes des UE</h3>
-            {{#licence.ue}}
-                <ul>
-                    <li><a href="/ue/{{id}}">{{title}}</a></li>
-                </ul>
-            {{/licence.ue}}
+        <div class="subbody">
+            <div class="container">
+                <h1>{{licence.title}}</h1>
+                <h3>Description</h3>
+                <p>{{licence.description}}</p>
+                <h3>Listes des UE</h3>
+                {{#licence.ue}}
+                    <ul>
+                        <li><a href="/ue/{{id}}">{{title}}</a></li>
+                    </ul>
+                {{/licence.ue}}
+            </div>
         </div>
     </body>
 </html>
