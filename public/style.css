@@ -2,6 +2,10 @@ body {
 	background-color: #20202a;
 	color: white;
 	font-family: Arial;
+	display: grid;
+	place-items: center;
+	min-height: 100vh;
+	margin: 0;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -24,19 +28,8 @@ a:hover {
 }
 
 .container {
-	/*
-	margin: auto;
-	max-width: fit-content;
-	*/
-	margin-top: 50px;
-	margin-bottom: 50px;
-	position: absolute;
-	top: 50%; left: 50%;
-	transform: translate(-50%, -50%);
-	
+	margin: 50px;
 	border-radius: 10px;
-	/*border: 1px solid #242424; light mode*/
-	/*border: 1px solid #dbdbdb; dark mode*/
 	padding: 50px;
 	max-width: fit-content;
 	text-align: center;
@@ -48,11 +41,6 @@ a:hover {
 	padding: 0;
 }
 
-/*
-.subcontainer {
-	text-align: left;
-}
-*/
 .subcontainer {
 	margin-top: 20px;
 	margin-bottom: 20px;
