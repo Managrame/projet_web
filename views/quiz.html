@@ -59,6 +59,10 @@
                 <br>
                 <input type="submit" value="Valider">
             </form>
+            {{#session.authenticated}}
+            <a href="/update_quiz/{{quiz.id}}">Modifier</a>
+            {{/session.authenticated}}
+        
         </div>
     </body>
 </html>

@@ -71,6 +71,18 @@ function update_ue(id_ue,title,desc,ects,vol_h) {
     })
 }
 
+function update_quiz(id,enonce,o1,o2,o3,o4,s) {
+    db.prepare("Update quiz Set enonce=@enonce,option1=@option1,option2=@option2,option3=@option3,option4=@option4,solution=@solution where id= @id").run({
+        id:id,
+        enonce:enonce,
+        option1:o1,
+        option2:o2,
+        option3:o3,
+        option4:o4,
+        solution:s
+    })
+}
+
 function insert_admin(n,p) {
     db.prepare("INSERT INTO admin (name,password) VALUES (@name,@password)").run({
         name:n,
@@ -265,7 +277,7 @@ app.get("/ue/:id",(req,res)=>{
 
 app.get("/quiz/:id",(req,res)=>{
     let q=get_quiz(parseInt(req.params.id));
-    res.render("quiz",{quiz:q});
+    res.render("quiz",{quiz:q,session:req.session});
     }
 );
 
@@ -284,10 +296,21 @@ app.get("/update_ue/:id",(req,res)=>{
     res.render("update_ue",{ue:u});
 })
 
+app.get("/update_quiz/:id",(req,res)=>{
+    let u=get_quiz(parseInt(req.params.id));
+    res.render("update_quiz",{quiz:u});
+})
+
+
 
 
 app.post("/update_ue/:id",(req,res)=>{
     update_ue(parseInt(req.params.id),req.body.title,req.body.description,parseInt(req.body.ects),parseInt(req.body.vol_h));
+    res.redirect("/");
+})
+
+app.post("/update_quiz/:id",(req,res)=>{
+    update_quiz(parseInt(req.params.id),req.body.enonce,req.body.option1,req.body.option2,req.body.option3,req.body.option4,req.body.solution);
     res.redirect("/");
 })
 

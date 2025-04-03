@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>update_quiz</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="/style.css">
+    </head>
+    <body>
+        <div class="container">
+            <h2>Modifier</h2>
+            <form method="POST" action="/update_quiz/{{quiz.id}}">
+                <div class="subcontainer">
+                    <h3>Enonce</h3>
+                    <textarea rows="5" cols="30" name="enonce" placeholder="Description" required>{{quiz.enonce}}</textarea><br>
+                    
+                    <h3>Option1</h3>
+                    <textarea rows="5" cols="30" name="option1" placeholder="Description" required>{{quiz.option1}}</textarea><br>
+
+                    <h3>Option2</h3>
+                    <textarea rows="5" cols="30" name="option2" placeholder="Description" required>{{quiz.option2}}</textarea><br>
+                    <h3>Option3</h3>
+                    <textarea rows="5" cols="30" name="option3" placeholder="Description" required>{{quiz.option3}}</textarea><br>
+                    <h3>Option4</h3>
+                    <textarea rows="5" cols="30" name="option4" placeholder="Description" required>{{quiz.option4}}</textarea><br>
+                    
+                    <h3>Solution</h3>
+                    <textarea rows="5" cols="30" name="solution" placeholder="Description" required>{{quiz.solution}}</textarea><br>
+                    
+                  
+                </div>
+
+                <button type="submit">Valider</button>
+            </form>
+        </div>
+    </body>
+</html>
