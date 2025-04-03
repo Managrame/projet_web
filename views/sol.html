@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Resultat</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="/style.css">
+    </head>
+    <body>
+        <div class="container">
+                {{#solution}}
+                <p>Victoire!</p>
+                <a href="/" >retour index</a>
+                {{/solution}}
+
+                {{^solution}}
+                <p>Faux!</p>
+                <a href="/quiz/{{id}}" >retour quiz</a>
+                {{/solution}}
+
+
+        </div>
+    </body>
+</html>

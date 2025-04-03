@@ -267,6 +267,8 @@ app.get("/update_ue/:id",(req,res)=>{
     res.render("update_ue",{ue:u});
 })
 
+
+
 app.post("/update_ue/:id",(req,res)=>{
     update_ue(parseInt(req.params.id),req.body.title,req.body.description,parseInt(req.body.ects),parseInt(req.body.vol_h));
     res.redirect("/");
@@ -296,10 +298,10 @@ app.post("/quiz/:id",(req,res)=>{
     console.log(req.body.choice);
     let q=check_sol(parseInt(req.params.id), req.body.choice);
     if(q){
-        res.send("bonne reponse");
+        res.render("sol.html",{solution:true,id:parseInt(req.params.id)});
     }
     else{
-        res.send("faux");
+        res.render("sol.html",{solution:false,id:parseInt(req.params.id)});
     }
     }
 );
