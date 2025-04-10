@@ -1,6 +1,14 @@
 {
-    "1":{
-        "name":"ju",
-        "password":"42"
-    }
+  "1": {
+    "name": "test",
+    "password": "12"
+  },
+  "2": {
+    "name": "ju",
+    "password": "42"
+  },
+  "3": {
+    "name": "louis",
+    "password": "14"
+  }
 }

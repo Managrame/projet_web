@@ -1,6 +1,7 @@
 "user strict";
 import fs from 'fs/promises';//pour gèrer des fichiers
 import Sqlite from "better-sqlite3"; //imporation better-sql
+import path from 'path';
 let db = new Sqlite("db.sqlite");
 import express from "express";
 let app=express();//importation express pour la gestion du serveur
@@ -23,7 +24,7 @@ app.use(session({
   }
 }));
 
-
+const jsonPath = path.join('./admin.json');
 //fonction de manipulation de la base de données
 
 function insert_licence(data) {
@@ -88,13 +89,31 @@ function update_quiz(id,enonce,o1,o2,o3,o4,s) {
     })
 }
 
-function insert_admin(n,p) {
+async function insert_admin(n,p) {
     db.prepare("INSERT INTO admin (name,password) VALUES (@name,@password)").run({
         name:n,
         password:p
     });
+    let jsonData=await lireJSON("./admin.json");
+    const ids = Object.keys(jsonData).map(Number);
+    const newId = ids.length > 0 ? Math.max(...ids) + 1 : 1;
+
+  
+  jsonData[newId] = {
+    name: n,
+    password: p
+  };
+
+  await fs.writeFile(jsonPath, JSON.stringify(jsonData, null, 2));
 }
 
+function insert_admin_ft(n,p) {
+    db.prepare("INSERT INTO admin (name,password) VALUES (@name,@password)").run({
+        name:n,
+        password:p
+    });
+    
+}
 
 async function lireJSON(file) {
     try {
@@ -154,7 +173,7 @@ async function load(file,file1) {
     let d= await lireJSON(file1);
     for (const k in d) {
         let a=d[k];
-        insert_admin(a.name,a.password);
+        insert_admin_ft(a.name,a.password);
     }
 
 }
@@ -368,7 +387,7 @@ app.post("/add_admin",(req,res)=>{
     let a=db.prepare("Select * from admin where name=?").all(req.body.name);
     if (a.length===0) {
         insert_admin(req.body.name,req.body.password);
-        res.redirect("/");
+          res.redirect("/");
     }
 })
 

@@ -178,5 +178,460 @@
                 }
             }
         }
+    },
+    "3": {
+    "title": "Licence Sciences Sociales",
+    "description": "Formation pluridisciplinaire abordant les grands problèmes du secteur sanitaire et social, intégrant les sciences biologiques, médicales, humaines et sociales, ainsi que le droit et l'économie.",
+    "ue": {
+      "1": {
+        "title": "Introduction aux Sciences Sociales",
+        "description": "Présentation des concepts fondamentaux et des approches méthodologiques en sciences sociales.",
+        "ects": 6,
+        "vol_h": 45,
+        "quiz": {
+          "301": {
+            "enonce": "Quelle discipline étudie les comportements humains en société ?",
+            "options": [
+              "Physique",
+              "Sociologie",
+              "Chimie",
+              "Mathématiques"
+            ],
+            "solution": "Sociologie"
+          },
+          "302": {
+            "enonce": "Quel est l'objet principal de l'anthropologie culturelle ?",
+            "options": [
+              "Les processus biologiques",
+              "Les cultures humaines",
+              "Les systèmes informatiques",
+              "Les phénomènes physiques"
+            ],
+            "solution": "Les cultures humaines"
+          }
+        }
+      },
+      "2": {
+        "title": "Économie Sociale",
+        "description": "Étude des principes économiques appliqués au secteur social et aux politiques publiques.",
+        "ects": 6,
+        "vol_h": 45,
+        "quiz": {
+          "303": {
+            "enonce": "Qu'est-ce qu'une économie solidaire ?",
+            "options": [
+              "Une économie basée sur la concurrence",
+              "Une économie visant le profit maximal",
+              "Une économie favorisant la coopération et l'entraide",
+              "Une économie centrée sur les technologies"
+            ],
+            "solution": "Une économie favorisant la coopération et l'entraide"
+          },
+          "304": {
+            "enonce": "Quel est le rôle principal des politiques publiques en économie sociale ?",
+            "options": [
+              "Réduire les impôts des grandes entreprises",
+              "Encourager les initiatives privées",
+              "Promouvoir le bien-être collectif",
+              "Augmenter la dette publique"
+            ],
+            "solution": "Promouvoir le bien-être collectif"
+          }
+        }
+      },
+      "3": {
+        "title": "Droit du Travail",
+        "description": "Introduction aux principales législations régissant les relations de travail et les droits des travailleurs.",
+        "ects": 6,
+        "vol_h": 45,
+        "quiz": {
+          "305": {
+            "enonce": "Quel est l'âge légal de départ à la retraite en France en 2025 ?",
+            "options": [
+              "60 ans",
+              "62 ans",
+              "64 ans",
+              "65 ans"
+            ],
+            "solution": "64 ans"
+          },
+          "306": {
+            "enonce": "Quelle institution est chargée de veiller au respect du droit du travail en France ?",
+            "options": [
+              "Le Conseil d'État",
+              "L'Assemblée Nationale",
+              "L'Inspection du Travail",
+              "Le Sénat"
+            ],
+            "solution": "L'Inspection du Travail"
+          }
+        }
+      }
     }
+  },
+  
+    "4": {
+      "title": "Licence Administration Économique et Sociale",
+      "description": "Formation orientant les étudiants vers les secteurs privé ou public, visant l’acquisition de connaissances et de compétences propres à l’entreprise et au fonctionnement des organisations publiques.",
+      "ue": {
+        "1": {
+          "title": "Introduction à l'Économie",
+          "description": "Présentation des concepts fondamentaux de l'économie et de leur application dans le secteur public et privé.",
+          "ects": 6,
+          "vol_h": 45,
+          "quiz": {
+            "401": {
+              "enonce": "Qu'est-ce que le PIB ?",
+              "options": [
+                "Produit Intérieur Brut",
+                "Produit International Brut",
+                "Produit Intérieur Bénéfique",
+                "Produit Industriel Brut"
+              ],
+              "solution": "Produit Intérieur Brut"
+            },
+            "402": {
+              "enonce": "Quelle est la loi de l'offre et de la demande ?",
+              "options": [
+                "Lorsque l'offre augmente, le prix augmente",
+                "Lorsque la demande augmente, le prix diminue",
+                "Lorsque l'offre dépasse la demande, le prix diminue",
+                "Lorsque la demande dépasse l'offre, le prix diminue"
+              ],
+              "solution": "Lorsque l'offre dépasse la demande, le prix diminue"
+            }
+          }
+        },
+        "2": {
+          "title": "Droit Public",
+          "description": "Étude des principes fondamentaux du droit public et de son application dans l'administration.",
+          "ects": 6,
+          "vol_h": 45,
+          "quiz": {
+            "403": {
+              "enonce": "Quelle est la principale fonction du Conseil d'État en France ?",
+              "options": [
+                "Conseiller le Président",
+                "Rédiger les lois",
+                "Contrôler la légalité des actes administratifs",
+                "Gérer les finances publiques"
+              ],
+              "solution": "Contrôler la légalité des actes administratifs"
+            },
+            "404": {
+              "enonce": "Qu'est-ce qu'une collectivité territoriale ?",
+              "options": [
+                "Une entreprise publique",
+                "Une division administrative de l'État avec une certaine autonomie",
+                "Un organisme international",
+                "Une association à but non lucratif"
+              ],
+              "solution": "Une division administrative de l'État avec une certaine autonomie"
+            }
+          }
+        },
+        "3": {
+          "title": "Gestion des Organisations",
+          "description": "Introduction aux concepts de base de la gestion appliqués aux organisations publiques et privées.",
+          "ects": 6,
+          "vol_h": 45,
+          "quiz": {
+            "405": {
+              "enonce": "Qu'est-ce qu'un organigramme ?",
+              "options": [
+                "Un document comptable",
+                "Une représentation graphique de la structure d'une organisation",
+                "Un plan marketing",
+                "Une liste de tâches à accomplir"
+              ],
+              "solution": "Une représentation graphique de la structure d'une organisation"
+            },
+            "406": {
+              "enonce": "Quelle est la fonction principale du management dans une organisation ?",
+              "options": [
+                "Augmenter les profits",
+                "Coordonner les efforts pour atteindre les objectifs",
+                "Réduire les coûts",
+                "Superviser uniquement les employés"
+              ],
+              "solution": "Coordonner les efforts pour atteindre les objectifs"
+            }
+          }
+        }
+      }
+    },
+    
+        "5": {
+          "title": "Licence Sciences pour l'Ingénieur",
+          "description": "Formation pluridisciplinaire visant à fournir aux étudiants les bases scientifiques et techniques nécessaires dans les domaines de l'ingénierie, incluant la mécanique, l'électronique et l'automatique.",
+          "ue": {
+            "1": {
+              "title": "Mécanique Générale",
+              "description": "Étude des principes fondamentaux de la mécanique des solides et des fluides.",
+              "ects": 6,
+              "vol_h": 45,
+              "quiz": {
+                "501": {
+                  "enonce": "Quelle est la deuxième loi de Newton ?",
+                  "options": [
+                    "Principe d'inertie",
+                    "Principe fondamental de la dynamique",
+                    "Principe d'action-réaction",
+                    "Principe de conservation de l'énergie"
+                  ],
+                  "solution": "Principe fondamental de la dynamique"
+                },
+                "502": {
+                  "enonce": "Qu'est-ce que la viscosité d'un fluide mesure ?",
+                  "options": [
+                    "Sa densité",
+                    "Sa résistance à l'écoulement",
+                    "Sa température",
+                    "Sa pression"
+                  ],
+                  "solution": "Sa résistance à l'écoulement"
+                }
+              }
+            },
+            "2": {
+              "title": "Électronique Analogique",
+              "description": "Introduction aux composants et circuits électroniques analogiques.",
+              "ects": 6,
+              "vol_h": 45,
+              "quiz": {
+                "503": {
+                  "enonce": "Quel composant est utilisé pour amplifier un signal électrique ?",
+                  "options": [
+                    "Résistance",
+                    "Condensateur",
+                    "Transistor",
+                    "Diode"
+                  ],
+                  "solution": "Transistor"
+                },
+                "504": {
+                  "enonce": "Quelle est la fonction principale d'un filtre passe-bas ?",
+                  "options": [
+                    "Atténuer les hautes fréquences",
+                    "Atténuer les basses fréquences",
+                    "Amplifier les hautes fréquences",
+                    "Amplifier les basses fréquences"
+                  ],
+                  "solution": "Atténuer les hautes fréquences"
+                }
+              }
+            },
+            "3": {
+              "title": "Automatique",
+              "description": "Étude des systèmes de contrôle et de régulation automatique.",
+              "ects": 6,
+              "vol_h": 45,
+              "quiz": {
+                "505": {
+                  "enonce": "Qu'est-ce qu'un système en boucle fermée ?",
+                  "options": [
+                    "Un système sans rétroaction",
+                    "Un système avec rétroaction",
+                    "Un système linéaire",
+                    "Un système non linéaire"
+                  ],
+                  "solution": "Un système avec rétroaction"
+                },
+                "506": {
+                  "enonce": "Quel est l'objectif principal d'un régulateur PID ?",
+                  "options": [
+                    "Minimiser l'erreur entre la sortie et la consigne",
+                    "Maximiser l'erreur entre la sortie et la consigne",
+                    "Augmenter la complexité du système",
+                    "Réduire la consommation d'énergie"
+                  ],
+                  "solution": "Minimiser l'erreur entre la sortie et la consigne"
+                }
+              }
+            }
+          }
+        },
+      
+    "6": {
+    "title": "Licence Sciences de la Vie et de la Terre",
+    "description": "Formation offrant une solide base en biologie et en sciences de la Terre, préparant aux métiers de l'enseignement, de la recherche ou de l'environnement.",
+    "ue": {
+      "1": {
+        "title": "Biologie Cellulaire",
+        "description": "Étude des structures et fonctions des cellules, unités fondamentales de la vie.",
+        "ects": 6,
+        "vol_h": 45,
+        "quiz": {
+          "601": {
+            "enonce": "Quelle organite est responsable de la production d'énergie dans la cellule ?",
+            "options": [
+              "Noyau",
+              "Mitochondrie",
+              "Ribosome",
+              "Appareil de Golgi"
+            ],
+            "solution": "Mitochondrie"
+          },
+          "602": {
+            "enonce": "Quel est le rôle principal du réticulum endoplasmique rugueux ?",
+            "options": [
+              "Synthèse des lipides",
+              "Synthèse des protéines",
+              "Production d'ATP",
+              "Dégradation des déchets cellulaires"
+            ],
+            "solution": "Synthèse des protéines"
+          }
+        }
+      },
+      "2": {
+        "title": "Géologie Générale",
+        "description": "Introduction aux processus géologiques et à la structure de la Terre.",
+        "ects": 6,
+        "vol_h": 45,
+        "quiz": {
+          "603": {
+            "enonce": "Quelle est la couche externe de la Terre appelée ?",
+            "options": [
+              "Manteau",
+              "Noyau externe",
+              "Croûte",
+              "Noyau interne"
+            ],
+            "solution": "Croûte"
+          },
+          "604": {
+            "enonce": "Quel type de roche est formé par solidification du magma ?",
+            "options": [
+              "Roche sédimentaire",
+              "Roche métamorphique",
+              "Roche ignée",
+              "Roche fossile"
+            ],
+            "solution": "Roche ignée"
+          }
+        }
+      },
+      "3": {
+        "title": "Écologie",
+        "description": "Étude des interactions entre les organismes et leur environnement.",
+        "ects": 6,
+        "vol_h": 45,
+        "quiz": {
+          "605": {
+            "enonce": "Quel terme décrit une communauté d'organismes vivants interagissant avec leur environnement non vivant ?",
+            "options": [
+              "Population",
+              "Écosystème",
+              "Biome",
+              "Habitat"
+            ],
+            "solution": "Écosystème"
+          },
+          "606": {
+            "enonce": "Quelle est la principale source d'énergie dans la plupart des écosystèmes ?",
+            "options": [
+              "Vent",
+              "Soleil",
+              "Eau",
+              "Sol"
+            ],
+            "solution": "Soleil"
+          }
+        }
+      }
+    }
+  },
+  "7": {
+    "title": "Licence Sciences de la Matière",
+    "description": "Formation centrée sur la physique et la chimie, visant à comprendre les propriétés fondamentales de la matière.",
+    "ue": {
+      "1": {
+        "title": "Physique Quantique",
+        "description": "Introduction aux concepts de base de la mécanique quantique.",
+        "ects": 6,
+        "vol_h": 45,
+        "quiz": {
+          "701": {
+            "enonce": "Quel principe stipule qu'il est impossible de connaître simultanément la position et la vitesse exactes d'une particule ?",
+            "options": [
+              "Principe d'exclusion de Pauli",
+              "Principe d'incertitude de Heisenberg",
+              "Principe de superposition",
+              "Principe de complémentarité"
+            ],
+            "solution": "Principe d'incertitude de Heisenberg"
+          },
+          "702": {
+            "enonce": "Quelle est la constante de Planck ?",
+            "options": [
+              "6,626 × 10^-34 m² kg / s",
+              "3,00 × 10^8 m/s",
+              "9,81 m/s²",
+              "1,602 × 10^-19 C"
+            ],
+            "solution": "6,626 × 10^-34 m² kg / s"
+          }
+        }
+      },
+      "2": {
+        "title": "Thermodynamique",
+        "description": "Étude des lois gouvernant les échanges d'énergie et de matière.",
+        "ects": 6,
+        "vol_h": 45,
+        "quiz": {
+          "703": {
+            "enonce": "Quelle loi de la thermodynamique stipule que l'énergie totale d'un système isolé reste constante ?",
+            "options": [
+              "Première loi",
+              "Deuxième loi",
+              "Troisième loi",
+              "Zéroième loi"
+            ],
+            "solution": "Première loi"
+          },
+          "704": {
+            "enonce": "Quel est le nom du processus lors duquel un gaz se dilate sans échange de chaleur avec l'extérieur ?",
+            "options": [
+              "Isotherme",
+              "Adiabatique",
+              "Isochore",
+              "Isobare"
+            ],
+            "solution": "Adiabatique"
+          }
+        }
+      },
+      "3": {
+        "title": "Chimie Inorganique",
+        "description": "Étude des propriétés et réactions des composés inorganiques.",
+        "ects": 6,
+        "vol_h": 45,
+        "quiz": {
+          "705": {
+            "enonce": "Quel élément est le plus abondant dans la croûte terrestre ?",
+            "options": [
+              "Fer",
+              "Oxygène",
+              "Silicium",
+              "Aluminium"
+            ],
+            "solution": "Oxygène"
+          },
+          "706": {
+            "enonce": "Quelle est la formule chimique de l'ammoniac ?",
+            "options": [
+              "NH₃",
+              "NO₂",
+              "N₂O",
+              "NH₄"
+            ],
+            "solution": "NH₃"
+          }
+        }
+      }
+    }
+  }
+  
+  
 }
