@@ -1,25 +1,28 @@
 "user strict";
-import fs from 'fs/promises';
+import fs from 'fs/promises';//pour gèrer des fichiers
 import Sqlite from "better-sqlite3"; //imporation better-sql
 let db = new Sqlite("db.sqlite");
 import express from "express";
-let app=express();
+let app=express();//importation express pour la gestion du serveur
 app.use(express.urlencoded({ extended: true }));
-import mustacheExpress from 'mustache-express';
-app.engine('html', mustacheExpress()); 
+import mustacheExpress from 'mustache-express';//importation  de mustache-express pour les templates
+app.engine('html', mustacheExpress()); //configuration mustach-express
 app.set('view engine', 'html');
 app.set('views', './views');
-import session from 'express-session';
+import session from 'express-session';//importation  de express-session pour les sessions
 app.use(express.static('public'));
 // Configuration des sessions
 app.use(session({
-  secret: '314159', // À changer et garder secret
+  secret: '314159',
   resave: false,
   saveUninitialized: false,
   cookie: { 
    
   }
 }));
+
+
+//fonction de manipulation de la base de données
 
 function insert_licence(data) {
     const r = db.prepare("INSERT INTO licences (title, description) VALUES (@title, @description)").run({
@@ -100,6 +103,8 @@ async function lireJSON(file) {
         console.error("Erreur de lecture :", err);
     }
 }
+
+
 async function load(file) {
     db.exec("DROP TABLE IF EXISTS quiz");
     db.exec("DROP TABLE IF EXISTS ue");
@@ -145,7 +150,7 @@ async function load(file) {
     }
 }
 
-
+//fonctions d'accès
 function check_admin(name,pw){
     let a=db.prepare("Select name from admin").all();
     for (const id of a) {
@@ -221,14 +226,14 @@ function get_all_licences() {
 
 function get_ue(id_ue){
     let a=[];
-    let q= db.prepare("Select id,enonce from quiz where id_ue=?").all(id_ue);
+    let q= db.prepare("Select id,enonce from quiz where id_ue=?").all(id_ue);//récupération des informations des quiz associés à l'ue
     for (let x of q) {
         a.push({
             id: x.id,
             enonce: x.enonce
         });
     }
-    return {
+    return {//construction de l'objet ue
         "id":id_ue,
         "title": db.prepare("Select title from ue where id=?").get(id_ue).title,
         "description": db.prepare("Select description from ue where id=?").get(id_ue).description,
@@ -256,8 +261,10 @@ function check_sol(id_question, sol){
     return (sol==rep.solution);
 }
 
+//fonctions d'affichage des pages
+
 app.get("/",(req,res)=>{
-    let al = get_all_licences();
+    let al = get_all_licences();//tableau d'objet de la forme {id,name}
     res.render("index.html",{licences:al,session:req.session});
     }
 );
@@ -292,17 +299,17 @@ app.get("/logout",(req,res)=>{
 
 
 app.get("/update_ue/:id",(req,res)=>{
-    let u=get_ue(parseInt(req.params.id));
+    let u=get_ue(parseInt(req.params.id));//récupération de l'ue de base pour préremplir les champs de la page de modification
     res.render("update_ue",{ue:u});
 })
 
 app.get("/update_quiz/:id",(req,res)=>{
-    let u=get_quiz(parseInt(req.params.id));
+    let u=get_quiz(parseInt(req.params.id));//récupération du quiz de base pour préremplir les champs de la page de modification
     res.render("update_quiz",{quiz:u});
 })
 
 
-
+//fonctions d'interaactons avec le serveur
 
 app.post("/update_ue/:id",(req,res)=>{
     update_ue(parseInt(req.params.id),req.body.title,req.body.description,parseInt(req.body.ects),parseInt(req.body.vol_h));
@@ -346,8 +353,8 @@ app.post("/quiz/:id",(req,res)=>{
     }
 );
 
-
-load("./proto.json").then(() => {
+//lancement
+load("./proto.json").then(() => {//création de la base puis lancement du serveur
     app.listen(3000, () => {
         console.log("Server is running on http://localhost:3000");
     });
