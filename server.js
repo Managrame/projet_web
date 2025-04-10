@@ -9,8 +9,10 @@ import mustacheExpress from 'mustache-express';//importation  de mustache-expres
 app.engine('html', mustacheExpress()); //configuration mustach-express
 app.set('view engine', 'html');
 app.set('views', './views');
+app.use(express.static('public'));//gestion des pages static(style)
 import session from 'express-session';//importation  de express-session pour les sessions
-app.use(express.static('public'));
+
+
 // Configuration des sessions
 app.use(session({
   secret: '314159',
@@ -105,7 +107,7 @@ async function lireJSON(file) {
 }
 
 
-async function load(file) {
+async function load(file,file1) {
     db.exec("DROP TABLE IF EXISTS quiz");
     db.exec("DROP TABLE IF EXISTS ue");
     db.exec("DROP TABLE IF EXISTS licences");
@@ -148,6 +150,13 @@ async function load(file) {
     for (const key in data) {
         insert_licence(data[key]);
     }
+
+    let d= await lireJSON(file1);
+    for (const k in d) {
+        let a=d[k];
+        insert_admin(a.name,a.password);
+    }
+
 }
 
 //fonctions d'accès
@@ -161,8 +170,7 @@ function check_admin(name,pw){
     }
    
     
-        insert_admin(name,pw);
-        return true;
+      return false;
     
 }
 
@@ -308,6 +316,9 @@ app.get("/update_quiz/:id",(req,res)=>{
     res.render("update_quiz",{quiz:u});
 })
 
+app.get("/add_admin",(req,res)=>{
+    res.render("add_admin.html");
+})
 
 //fonctions d'interaactons avec le serveur
 
@@ -342,7 +353,6 @@ app.post("/logout",(req,res)=>{
 })
 
 app.post("/quiz/:id",(req,res)=>{
-    console.log(req.body.choice);
     let q=check_sol(parseInt(req.params.id), req.body.choice);
     if(q){
         res.render("sol.html",{solution:true,id:parseInt(req.params.id)});
@@ -353,8 +363,17 @@ app.post("/quiz/:id",(req,res)=>{
     }
 );
 
+
+app.post("/add_admin",(req,res)=>{
+    let a=db.prepare("Select * from admin where name=?").all(req.body.name);
+    if (a.length===0) {
+        insert_admin(req.body.name,req.body.password);
+        res.redirect("/");
+    }
+})
+
 //lancement
-load("./proto.json").then(() => {//création de la base puis lancement du serveur
+load("./proto.json","./admin.json").then(() => {//création de la base puis lancement du serveur
     app.listen(3000, () => {
         console.log("Server is running on http://localhost:3000");
     });
