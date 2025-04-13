@@ -631,7 +631,191 @@
         }
       }
     }
-  }
+  },
   
+  "8": {
+    "title": "Licence Arts du Spectacle",
+    "description": "Formation pluridisciplinaire explorant les théories, pratiques et esthétiques des arts vivants, incluant théâtre, cinéma et danse.",
+    "ue": {
+      "1": {
+        "title": "Introduction au Théâtre",
+        "description": "Étude des fondements du théâtre, de l'Antiquité à nos jours.",
+        "ects": 6,
+        "vol_h": 45,
+        "quiz": {
+          "801": {
+            "enonce": "Quel dramaturge est l'auteur de 'Phèdre' ?",
+            "options": [
+              "Molière",
+              "Racine",
+              "Corneille",
+              "Voltaire"
+            ],
+            "solution": "Racine"
+          },
+          "802": {
+            "enonce": "Quel est le nom du théâtre construit par Shakespeare à Londres ?",
+            "options": [
+              "The Globe",
+              "The Royal Theatre",
+              "The London Stage",
+              "The Curtain"
+            ],
+            "solution": "The Globe"
+          }
+        }
+      },
+      "2": {
+        "title": "Analyse Filmique",
+        "description": "Méthodologie d'analyse des œuvres cinématographiques.",
+        "ects": 6,
+        "vol_h": 45,
+        "quiz": {
+          "803": {
+            "enonce": "Quel mouvement cinématographique est associé à François Truffaut ?",
+            "options": [
+              "Expressionnisme allemand",
+              "Nouvelle Vague",
+              "Néoréalisme italien",
+              "Cinéma vérité"
+            ],
+            "solution": "Nouvelle Vague"
+          },
+          "804": {
+            "enonce": "Quel est le terme désignant le montage alterné entre deux actions simultanées ?",
+            "options": [
+              "Fondu enchaîné",
+              "Champ-contrechamp",
+              "Montage parallèle",
+              "Plan-séquence"
+            ],
+            "solution": "Montage parallèle"
+          }
+        }
+      },
+      "3": {
+        "title": "Pratiques Artistiques",
+        "description": "Ateliers pratiques en théâtre, danse et mise en scène.",
+        "ects": 6,
+        "vol_h": 45,
+        "quiz": {
+          "805": {
+            "enonce": "Quel terme désigne l'improvisation théâtrale sans préparation préalable ?",
+            "options": [
+              "Commedia dell'arte",
+              "Jeu spontané",
+              "Improvisation libre",
+              "Théâtre forum"
+            ],
+            "solution": "Improvisation libre"
+          },
+          "806": {
+            "enonce": "Quel est le rôle principal du metteur en scène ?",
+            "options": [
+              "Écrire le scénario",
+              "Financer la production",
+              "Diriger la mise en œuvre scénique",
+              "Jouer le rôle principal"
+            ],
+            "solution": "Diriger la mise en œuvre scénique"
+          }
+        }
+      }
+    }
+  },
+
+  "9": {
+    "title": "Licence Sciences et Humanités",
+    "description": "Formation interdisciplinaire alliant sciences exactes et sciences humaines pour une compréhension globale des enjeux contemporains.",
+    "ue": {
+      "1": {
+        "title": "Méthodologie Interdisciplinaire",
+        "description": "Approches croisées entre disciplines scientifiques et humanistes.",
+        "ects": 6,
+        "vol_h": 45,
+        "quiz": {
+          "901": {
+            "enonce": "Quel philosophe est connu pour sa méthode du doute systématique ?",
+            "options": [
+              "Platon",
+              "Descartes",
+              "Kant",
+              "Aristote"
+            ],
+            "solution": "Descartes"
+          },
+          "902": {
+            "enonce": "En sciences, qu'est-ce qu'une hypothèse falsifiable ?",
+            "options": [
+              "Une hypothèse qui peut être prouvée vraie",
+              "Une hypothèse qui peut être testée et potentiellement réfutée",
+              "Une hypothèse acceptée par consensus",
+              "Une hypothèse basée sur des croyances personnelles"
+            ],
+            "solution": "Une hypothèse qui peut être testée et potentiellement réfutée"
+          }
+        }
+      },
+      "2": {
+        "title": "Éthique et Sciences",
+        "description": "Réflexion sur les implications éthiques des avancées scientifiques.",
+        "ects": 6,
+        "vol_h": 45,
+        "quiz": {
+          "903": {
+            "enonce": "Quel document énonce les principes éthiques pour la recherche médicale sur des sujets humains ?",
+            "options": [
+              "Déclaration de Genève",
+              "Code de Nuremberg",
+              "Déclaration d'Helsinki",
+              "Serment d'Hippocrate"
+            ],
+            "solution": "Déclaration d'Helsinki"
+          },
+          "904": {
+            "enonce": "Quel est le principal enjeu éthique des technologies de l'édition génétique ?",
+            "options": [
+              "La réduction des coûts médicaux",
+              "L'amélioration des performances sportives",
+              "La modification héréditaire non consentie",
+              "La création de nouvelles espèces"
+            ],
+            "solution": "La modification héréditaire non consentie"
+          }
+        }
+      },
+      "3": {
+        "title": "Projet Interdisciplinaire",
+        "description": "Mise en œuvre d'un projet combinant approches scientifiques et humanistes.",
+        "ects": 6,
+        "vol_h": 45,
+        "quiz": {
+          "905": {
+            "enonce": "Quel est l'objectif principal d'un projet interdisciplinaire ?",
+            "options": [
+              "Approfondir une seule discipline",
+              "Combiner des perspectives pour résoudre des problèmes complexes",
+              "Simplifier les méthodologies de recherche",
+              "Limiter les interactions entre disciplines"
+            ],
+            "solution": "Combiner des perspectives pour résoudre des problèmes complexes"
+          },
+          "906": {
+            "enonce": "Quelle compétence est essentielle dans un travail interdisciplinaire ?",
+            "options": [
+              "Connaissance approfondie d'une seule discipline",
+              "Capacité à travailler en silo",
+              "Communication et collaboration entre disciplines",
+              "Rejet des méthodes non scientifiques"
+            ],
+            "solution": "Communication et collaboration entre disciplines"
+          }
+        }
+      }
+    }
+  }
+
+
+
   
 }
